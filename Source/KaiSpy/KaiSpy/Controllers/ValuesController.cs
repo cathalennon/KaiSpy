@@ -4,15 +4,17 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using KaiSpy.Models;
 
 namespace KaiSpy.Controllers
 {
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public IEnumerable<Deal> Get()
         {
-            return new string[] { "value1", "value2" };
+            DealsDBContext db = new DealsDBContext();
+            return db.Deals;
         }
 
         // GET api/values/5

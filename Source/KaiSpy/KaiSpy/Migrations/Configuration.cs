@@ -1,3 +1,5 @@
+using KaiSpy.Models;
+
 namespace KaiSpy.Migrations
 {
     using System;
@@ -9,7 +11,8 @@ namespace KaiSpy.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(KaiSpy.Models.DealsDBContext context)

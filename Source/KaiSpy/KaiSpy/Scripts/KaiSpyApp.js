@@ -14,10 +14,10 @@
                 var pos = new google.maps.LatLng(position.coords.latitude,
                                                  position.coords.longitude);
 
-                var infowindow = new google.maps.InfoWindow({
+                var infowindow = new google.maps.Marker({
                     map: map,
                     position: pos,
-                    content: 'You ready to eat?!?!'
+                    title: 'You Hungry nom nom nom'
                 });
 
                 map.setCenter(pos);

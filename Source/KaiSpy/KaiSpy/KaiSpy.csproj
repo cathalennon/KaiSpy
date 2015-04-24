@@ -164,9 +164,14 @@
     <Compile Include="Migrations\201504230518480_init.Designer.cs">
       <DependentUpon>201504230518480_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504240216260_Added-deals-to-category.cs" />
+    <Compile Include="Migrations\201504240216260_Added-deals-to-category.Designer.cs">
+      <DependentUpon>201504240216260_Added-deals-to-category.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Deal.cs" />
+    <Compile Include="Models\DealFactory.cs" />
     <Compile Include="Models\DealsDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -204,7 +209,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -231,6 +238,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201504230518480_init.resx">
       <DependentUpon>201504230518480_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504240216260_Added-deals-to-category.resx">
+      <DependentUpon>201504240216260_Added-deals-to-category.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

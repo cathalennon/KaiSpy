@@ -12,7 +12,7 @@ namespace KaiSpy.Models
         public string Day { get; set; }
         public double Lat { get; set; }
         public double Long { get; set; }
-        public List<Category> Categories { get; set; }
+        public virtual List<Category> Categories { get; set; }
         public string Description { get; set; }
         public string BusinessName { get; set; }
         public string Address { get; set; }

@@ -7,6 +7,7 @@ using System.Web.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using KaiSpy;
 using KaiSpy.Controllers;
+using KaiSpy.Models;
 
 namespace KaiSpy.Tests.Controllers
 {
@@ -20,7 +21,7 @@ namespace KaiSpy.Tests.Controllers
             ValuesController controller = new ValuesController();
 
             // Act
-            IEnumerable<string> result = controller.Get();
+            IEnumerable<Deal> result = controller.Get();
 
             // Assert
             Assert.IsNotNull(result);

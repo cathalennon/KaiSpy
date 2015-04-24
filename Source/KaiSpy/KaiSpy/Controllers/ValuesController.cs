@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using KaiSpy.Models;
+using WebGrease.Css.Extensions;
 
 namespace KaiSpy.Controllers
 {
@@ -14,7 +15,8 @@ namespace KaiSpy.Controllers
         public IEnumerable<Deal> Get()
         {
             DealsDBContext db = new DealsDBContext();
-            return db.Deals;
+
+            return db.Deals.ToList();
         }
 
         // GET api/values/5

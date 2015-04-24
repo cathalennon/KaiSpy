@@ -60,3 +60,8 @@ footer {
 #details h3 {
     text-align: center;
 }
+
+input {
+    width: 20px;
+    display: inline-block;
+}

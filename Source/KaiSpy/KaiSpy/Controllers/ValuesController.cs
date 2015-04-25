@@ -51,7 +51,7 @@ namespace KaiSpy.Controllers
                 Long = d.Long,
                 Address = d.Address,
                 BusinessName = d.BusinessName,
-                Categories = d.Categories.Select(c => new CategoryDTO() { Name = c.Name }).ToList(),
+                Categories = d.Categories.Select(c => new CategoryDTO() { Name = c.Name, Id = c.Id }).ToList(),
                 Description = d.Description,
                 PhoneNumber = d.PhoneNumber
             });

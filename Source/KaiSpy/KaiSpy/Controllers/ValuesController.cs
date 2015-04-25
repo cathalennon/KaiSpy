@@ -37,7 +37,9 @@ namespace KaiSpy.Controllers
 
         /// <summary>
         /// I worked out there was nothing wrong with entity framework - rather this was a serialization problem. To get around it I made 2 DTOs (Data Transfer objects).
-        /// The code looks almost identical to what was written above
+        /// The code looks almost identical to what was written above the chief difference is 1 using EF's knowledge of the join table to access Categories (Above i think uses reflection)
+        /// After that its using the dtos to setup the object for serialisation.
+        /// GLHF
         /// </summary>
 
         // GET api/values

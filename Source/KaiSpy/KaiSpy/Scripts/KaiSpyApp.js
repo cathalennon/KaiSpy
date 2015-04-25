@@ -1,8 +1,10 @@
 ﻿$('document').ready(function() {
     initialize();
-    addMarker(ekim);
+    $(Document).on('click', function() {
+        getAllDeals();
+    });
 });
-
+/*var api = new ApiRequest();*/
 var map;
 var ekim = {
     name: "Ekim Burger",
@@ -56,11 +58,11 @@ function handleNoGeolocation(errorFlag) {
     map.setCenter(options.position);
 }
 
-function addMarker(resturant) {
-    var name = resturant.name;
-    var LatLong = new google.maps.LatLng(resturant.latitude, resturant.longitude);
+function addMarker(deal) {
+    var name = deal.name;
+    var LatLong = new google.maps.LatLng(deal.latitude, deal.longitude);
     var infowindow = new google.maps.InfoWindow({
-        content: '<div class="marker">'+'<h3>'+ resturant.name +'</h3>'+ '</div>'
+        content: '<div class="marker">'+'<h3>'+ deal.name +'</h3>'+ '</div>'
     });
 
     var marker = new google.maps.Marker({
@@ -71,6 +73,7 @@ function addMarker(resturant) {
     google.maps.event.addListener(marker, "click", function () {
         infowindow.open(map, marker);
     });
+    
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

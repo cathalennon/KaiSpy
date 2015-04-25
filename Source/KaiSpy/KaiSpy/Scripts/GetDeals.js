@@ -5,9 +5,10 @@
 ApiRequest.prototype.getAllDeals = function() {
     $.ajax({
         type: 'GET',
-        url: this.uri + '',
+        url: this.uri + 'api/Deals',
+        datatype: 'json'
     }).done(function(data) {
-        return data;
+        LoopThroughJSON(data);
     }).fail(function(error) {
         console.log('cannot get deals from server. Error: ' + error);
     });

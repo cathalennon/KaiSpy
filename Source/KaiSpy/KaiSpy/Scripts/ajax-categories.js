@@ -1,4 +1,4 @@
-﻿var BaseURI = "http://localhost:59080/";
+﻿var BaseURI = "http://kaispy.azurewebsites.net/";
 
     function GetCategory(keyword) {
         $.get({

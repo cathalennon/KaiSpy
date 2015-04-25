@@ -1,12 +1,12 @@
 ﻿/*var ApiRequest = function() {
-    this.uri = 'http://localhost:59080/api';
+    this.uri = 'http://kaispy.azurewebsites.net/';
 }
 
 ApiRequest.prototype.getAllDeals = function()*/
 function getAllDeals() {
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:59080/api/Deals',
+        url: 'http://kaispy.azurewebsites.net/api/deals',
         datatype: 'json'
     }).done(function (data) {
         LoopThroughJSON(data);

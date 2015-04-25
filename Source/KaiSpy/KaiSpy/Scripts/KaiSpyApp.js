@@ -74,7 +74,7 @@ function addMarker(deal) {
 function showDetails(deal) {
     $('#details').empty();
     var dets = "<p> Day: " + deal.day + "</p><p>" + deal.description + "</p>";
-    var businessInfo = "<div><p> Phone: " + deal.phone + "</p><p> Address: " + deal.address + "</p></div>"; 
+    var businessInfo = '<div id="businessInfo"><p> Phone: ' + deal.phone + '</p><p> Address: ' + deal.address + '</p></div>'; 
     $('#details').append("<h3>" + deal.name + "<h3>" + dets + businessInfo);
     $('#details').show();
 }

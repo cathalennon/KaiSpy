@@ -1,6 +1,6 @@
 ﻿var BaseURI = "http://localhost:59080/";
 
-$(function() {
+
 
     function LoopThroughJSON(response) {
         for (var i = 0; i < response.length; i++) {
@@ -30,4 +30,3 @@ $(function() {
             }
         });
     }  
-});

@@ -22,7 +22,11 @@ function LoopThroughJSON(response) {
         var deal = {
             name: d.BusinessName,
             latitude: d.Lat,
-            longitude: d.Long
+            longitude: d.Long,
+            description: d.Description,
+            day: d.Day,
+            address: d.Address,
+            phone: d.PhoneNumber
         }
         addMarker(deal);
     }

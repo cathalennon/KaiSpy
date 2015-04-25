@@ -1,18 +1,12 @@
 ﻿$('document').ready(function() {
     initialize();
-    $(Document).on('click', function() {
-        getAllDeals();
-    });
+    getAllDeals();
 });
 /*var api = new ApiRequest();*/
 var map;
-var ekim = {
-    name: "Ekim Burger",
-    latitude: -41.296109,
-    longitude: 174.774226
-}; 
 
 function initialize() {
+    $('#details').hide();
     var mapOptions = {
         zoom: 18
     };
@@ -62,8 +56,8 @@ function addMarker(deal) {
     var name = deal.name;
     var LatLong = new google.maps.LatLng(deal.latitude, deal.longitude);
     var infowindow = new google.maps.InfoWindow({
-        content: '<div class="marker">'+'<h3>'+ deal.name +'</h3>'+ '</div>'
-    });
+        content: '<div class="marker">' + '<h3>' + deal.name + '</h3> </div>'
+        });
 
     var marker = new google.maps.Marker({
         position: LatLong,
@@ -72,9 +66,16 @@ function addMarker(deal) {
     });
     google.maps.event.addListener(marker, "click", function () {
         infowindow.open(map, marker);
+            showDetails(deal);
     });
     
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+function showDetails(deal) {
+    $('#details').empty();
+    var dets = "<p> Day: " + deal.day + "</p><p>" + deal.description + "</p>";
+    var businessInfo = "<div><p> Phone: " + deal.phone + "</p><p> Address: " + deal.address + "</p></div>"; 
+    $('#details').append("<h3>" + deal.name + "<h3>" + dets + businessInfo);
+    $('#details').show();
+}
 

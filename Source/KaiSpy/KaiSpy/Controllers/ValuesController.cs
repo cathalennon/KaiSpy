@@ -1,22 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using KaiSpy.Models;
+using Microsoft.Ajax.Utilities;
 using WebGrease.Css.Extensions;
 
 namespace KaiSpy.Controllers
 {
     public class ValuesController : ApiController
     {
+        DealsDBContext db = new DealsDBContext();
         // GET api/values
         public IEnumerable<Deal> Get()
         {
-            DealsDBContext db = new DealsDBContext();
+            var deals = db.Deals.Include("Category").Select(d => new Deal
+            {
+                Id = d.Id,
+                Day = d.Day,
+                Lat = d.Lat,
+                Long = d.Long,
+                Address = d.Address,
+                BusinessName = d.BusinessName,
+                Categories = d.Categories.Select(c => new Category{Name = c.Name}).ToList(),
+                Description = d.Description,
+                PhoneNumber = d.PhoneNumber
 
-            return db.Deals.ToList();
+            });
+
+            return deals;
         }
 
         // GET api/values/5

@@ -18,23 +18,9 @@ namespace KaiSpy.Controllers
         
         
         // GET: api/Deals
-        public string Get()
+        public List<Deal> Get()
         {
-            List<string> d = new List<string>();
-            foreach (var deal in context.Deals)
-            {
-                var content = new
-                {
-                    longitude = deal.Long,
-                    latitude = deal.Lat,
-                    day = deal.Day,
-                    description = deal.Description,
-                    name = deal.BusinessName,
-                    address = deal.Address,
-                };
-                d.Add(content.ToString());
-            }
-            return JsonConvert.SerializeObject(d, Formatting.Indented); 
+            return context.Deals.ToList();
         }
 
         // GET: api/Deals/5

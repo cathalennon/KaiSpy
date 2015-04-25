@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace KaiSpy.Models
 {
@@ -12,6 +13,7 @@ namespace KaiSpy.Models
         public string Day { get; set; }
         public double Lat { get; set; }
         public double Long { get; set; }
+        [JsonIgnore]
         public virtual List<Category> Categories { get; set; }
         public string Description { get; set; }
         public string BusinessName { get; set; }

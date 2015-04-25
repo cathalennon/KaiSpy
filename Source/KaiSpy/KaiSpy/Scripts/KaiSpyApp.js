@@ -6,7 +6,7 @@
 var map;
 var ekim = {
     name: "Ekim Burger",
-    lattitude: -41.296109,
+    latitude: -41.296109,
     longitude: 174.774226
 }; 
 
@@ -58,7 +58,7 @@ function handleNoGeolocation(errorFlag) {
 
 function addMarker(resturant) {
     var name = resturant.name;
-    var LatLong = new google.maps.LatLng(resturant.lattitude, resturant.longitude);
+    var LatLong = new google.maps.LatLng(resturant.latitude, resturant.longitude);
     var infowindow = new google.maps.InfoWindow({
         content: '<div class="marker">'+'<h3>'+ resturant.name +'</h3>'+ '</div>'
     });

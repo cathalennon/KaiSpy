@@ -36,14 +36,14 @@ namespace KaiSpy.Controllers
         //}
 
         /// <summary>
-        /// I worked out there was nothing wrong with entity framework - rather this was a serialization problem. To get around it I made 4 DTOs (Data Transfer objects).
-        /// This allowed me to control the information that was being serialized. ie the base dto does not have the property that caused the infinite reference problem.
+        /// I worked out there was nothing wrong with entity framework - rather this was a serialization problem. To get around it I made 2 DTOs (Data Transfer objects).
+        /// The code looks almost identical to what was written above
         /// </summary>
 
         // GET api/values
-        public IEnumerable<DealDTOWithCategoriesDTO> Get()
+        public IEnumerable<DealDTO> Get()
         {
-            return db.Deals.Include(p => p.Categories).Select(d => new DealDTOWithCategoriesDTO
+            return db.Deals.Include(p => p.Categories).Select(d => new DealDTO
             {
                 Id = d.Id,
                 Day = d.Day,

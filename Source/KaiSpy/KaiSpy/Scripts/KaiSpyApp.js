@@ -3,10 +3,10 @@
     getAllDeals();
     GetAllCategories();
     $('#foodtype').on('click','input', checkboxListener);
-    //GetAllCategories();
-    GetDealsFromCategoryCheckbox("pizza");
+
 });
 var map;
+var markers = [];
 
 function initialize() {
     $('#details').hide();
@@ -60,7 +60,11 @@ function addMarker(deal) {
     var LatLong = new google.maps.LatLng(deal.latitude, deal.longitude);
     var infowindow = new google.maps.InfoWindow({
         content: '<div class="marker">' + '<h3>' + deal.name + '</h3> </div>'
-        });
+        
+    });
+
+    markers.push(deal);
+    console.log(deal);
 
     var marker = new google.maps.Marker({
         position: LatLong,
@@ -73,6 +77,18 @@ function addMarker(deal) {
     });
     
 }
+
+//function removeMarkers (condition) {
+//
+//    for (var i = 0; i < condition.length; i++) {
+//        p=>
+//       
+//    }
+//    
+//    .setMap(null);
+//
+//}
+
 
 function showDetails(deal) {
     $('#details').empty();

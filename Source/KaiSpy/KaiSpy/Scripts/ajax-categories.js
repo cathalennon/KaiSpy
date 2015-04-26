@@ -22,4 +22,20 @@ function CreateCategoryCheckBoxes(response) {
     }
 }
 
+function GetDealsFromCategoryCheckbox(keyword) {
+    $.ajax({
+        type: "GET",
+        url: BaseURI + "values",
+        datatype: "Json",
+        content: { "keyword": keyword },
+        success: function(response) {
+            console.log(response);
+        },
+        error: function(response) {
+            alert(response);
+        }
+    });
+
+
+}
 

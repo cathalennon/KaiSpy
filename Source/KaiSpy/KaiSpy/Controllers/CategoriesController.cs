@@ -11,25 +11,25 @@ namespace KaiSpy.Controllers
 {
     public class CategoriesController : ApiController
     {
-        // GET api/values
+        DealsDBContext db = new DealsDBContext();
+        // GET api/categories
         public IEnumerable<Category> Get()
         {
-            DealsDBContext db = new DealsDBContext();
             return db.Categories.ToList();
         }
 
-        // GET api/values/5
-        public string Get(int id)
+        // GET api/categories/5
+        public Category Get(string id)
         {
-            return "value";
+           return db.Categories.Where(c => c.Name == id).FirstOrDefault();
         }
 
-        // POST api/values
+        // POST api/categories
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT api/values/5
+        // PUT api/categories/5
         public void Put(int id, [FromBody]string value)
         {
         }

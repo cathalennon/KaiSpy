@@ -21,7 +21,7 @@ namespace KaiSpy.Controllers
         // GET api/categories/5
         public Category Get(string id)
         {
-           return db.Categories.Where(c => c.Name == id).FirstOrDefault();
+            return db.Categories.Where(c => c.Name == id).FirstOrDefault();
         }
 
         // POST api/categories

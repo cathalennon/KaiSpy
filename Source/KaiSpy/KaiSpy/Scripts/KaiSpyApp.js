@@ -2,6 +2,7 @@
     initialize();
     getAllDeals();
     GetAllCategories();
+    $('#foodtype').on('click','input', checkboxListener);
 });
 /*var api = new ApiRequest();*/
 var map;

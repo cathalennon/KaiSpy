@@ -21,3 +21,5 @@ function CreateCategoryCheckBoxes(response) {
         $('#foodtype').append("<input type='checkbox' value=" + category.Namespace + "><label>" + category.Name + "</label>");
     }
 }
+
+

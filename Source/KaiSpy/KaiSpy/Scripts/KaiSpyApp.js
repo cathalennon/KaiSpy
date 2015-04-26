@@ -1,9 +1,9 @@
 ﻿$('document').ready(function() {
     initialize();
     getAllDeals();
-    GetAllCategories();
+    //GetAllCategories();
+    GetDealsFromCategoryCheckbox("pizza");
 });
-/*var api = new ApiRequest();*/
 var map;
 
 function initialize() {

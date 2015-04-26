@@ -12,11 +12,10 @@ namespace KaiSpy.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<Deal> Get()
+        public IEnumerable<Category> Get()
         {
             DealsDBContext db = new DealsDBContext();
-
-            return db.Deals.ToList();
+            return db.Categories.ToList();
         }
 
         // GET api/values/5

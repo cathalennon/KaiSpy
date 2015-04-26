@@ -4,6 +4,7 @@
 });
 /*var api = new ApiRequest();*/
 var map;
+var markers = []; 
 
 function initialize() {
     $('#details').hide();
@@ -19,7 +20,7 @@ function initialize() {
             var pos = new google.maps.LatLng(position.coords.latitude,
                                              position.coords.longitude);
 
-            var infowindow = new google.maps.Marker({
+            new google.maps.Marker({
                 map: map,
                 position: pos,
                 title: 'You Hungry nom nom nom'
@@ -64,6 +65,8 @@ function addMarker(deal) {
         map: map,
         title: name
     });
+
+    markers.push(marker);
     google.maps.event.addListener(marker, "click", function () {
         infowindow.open(map, marker);
             showDetails(deal);
@@ -79,3 +82,19 @@ function showDetails(deal) {
     $('#details').show();
 }
 
+// Sets the map on all markers in the array.
+function setAllMap(map) {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+    }
+}
+
+// Removes the markers from the map, but keeps them in the array.
+function clearMarkers() {
+    setAllMap(null);
+}
+
+// Shows any markers currently in the array.
+function showMarkers() {
+    setAllMap(map);
+}

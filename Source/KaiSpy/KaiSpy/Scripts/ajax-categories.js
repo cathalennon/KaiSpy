@@ -25,12 +25,12 @@ function CreateCategoryCheckBoxes(response) {
 function GetDealsFromCategoryCheckbox(keyword) {
     $.ajax({
         type: "GET",
-        url: BaseURI + "categories/" + keyword,
-        datatype: "Json",
+        url: "http://localhost:59080/api/categories/" + keyword,
+        datatype: "json",
         content: { "keyword": keyword },
         success: function(response) {
-            LoopThroughJSON(response);
-            console.log(response);
+            LoopThroughJSON(response.Deals);
+            console.log(response.Deals);
         },
         error: function(response) {
             alert(response);

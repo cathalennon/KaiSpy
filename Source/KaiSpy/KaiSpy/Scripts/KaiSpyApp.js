@@ -1,6 +1,8 @@
 ﻿$('document').ready(function() {
     initialize();
     getAllDeals();
+    GetAllCategories();
+    $('#foodtype').on('click','input', checkboxListener);
     //GetAllCategories();
     GetDealsFromCategoryCheckbox("pizza");
 });

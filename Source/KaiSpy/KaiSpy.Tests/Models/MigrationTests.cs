@@ -6,6 +6,9 @@ namespace KaiSpy.Tests.Models
     [TestFixture]
     class MigrationTests
     {
+        /* BA you probably don't want this test to run every time you run your suite - it's an entry point for debugging rather than a true test, and it will always fail. Delete it, or mark it with an 
+         * [Ignore("Reason for ignoring")] attribute
+            */
         [Test]
         public void why_are_we_getting_duplicates()
         {

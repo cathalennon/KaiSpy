@@ -2,7 +2,7 @@ namespace KaiSpy.Models
 {
     using System;
     using System.Data.Entity;
-    using System.Linq;
+    using System.Linq; // BA unused usings
 
     public class DealsDBContext : DbContext
     {

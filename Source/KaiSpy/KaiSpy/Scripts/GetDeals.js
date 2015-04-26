@@ -1,4 +1,5 @@
-﻿/*var ApiRequest = function() {
+﻿// BA commented-out code. Remove it.
+/*var ApiRequest = function() {
     this.uri = 'http://kaispy.azurewebsites.net/';
 }
 
@@ -15,6 +16,7 @@ function getAllDeals() {
     });
 };
 
+// BA I can see that this is looping trhough the json, but what else is it doing? Is LoopThroughJSON a good name?
 function LoopThroughJSON(response) {
     console.log(response);
     for (var i = 0; i < response.length; i++) {
@@ -28,6 +30,6 @@ function LoopThroughJSON(response) {
             address: d.Address,
             phone: d.PhoneNumber
         }
-        addMarker(deal);
+        addMarker(deal); // BA you appear to have a lot of global methods. This probably isn't great style.
     }
 }

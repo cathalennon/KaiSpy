@@ -35,7 +35,7 @@ function GetDealsFromCategoryCheckbox(keyword) {
             alert(response);
         }
     });
-
-
 }
+
+
 

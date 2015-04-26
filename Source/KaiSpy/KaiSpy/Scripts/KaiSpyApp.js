@@ -1,10 +1,14 @@
 ﻿$('document').ready(function() {
     initialize();
     getAllDeals();
+<<<<<<< HEAD
     GetAllCategories();
     $('#foodtype').on('click','input', checkboxListener);
+=======
+    //GetAllCategories();
+    GetDealsFromCategoryCheckbox("pizza");
+>>>>>>> development
 });
-/*var api = new ApiRequest();*/
 var map;
 
 function initialize() {

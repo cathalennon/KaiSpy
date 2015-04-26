@@ -9,7 +9,7 @@ using WebGrease.Css.Extensions;
 
 namespace KaiSpy.Controllers
 {
-    public class ValuesController : ApiController
+    public class CategoriesController : ApiController
     {
         // GET api/values
         public IEnumerable<Category> Get()

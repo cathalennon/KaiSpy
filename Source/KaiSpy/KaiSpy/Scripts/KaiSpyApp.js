@@ -1,6 +1,7 @@
 ﻿$('document').ready(function() {
     initialize();
     getAllDeals();
+    GetAllCategories();
 });
 /*var api = new ApiRequest();*/
 var map;

@@ -17,12 +17,8 @@ function GetAllCategories() {
 function CreateCategoryCheckBoxes(response) {
     for (var i = 0; i < response.length; i++) {
         var category = response[i];
-<<<<<<< HEAD
         console.log(category.Namespace, category.Id);
-        $('#foodtype').append('<input class="category" type="checkbox" value="' + category.Name + '"><label>' + category.Name + '</label>');
-=======
         $('#foodtype').append("<input type='checkbox' value=" + category.Name + "><label>" + category.Name + "</label>");
->>>>>>> development
     }
 }
 
@@ -31,20 +27,16 @@ function GetDealsFromCategoryCheckbox(keyword) {
         type: "GET",
         url: BaseURI + "categories/" + keyword,
         datatype: "Json",
-<<<<<<< HEAD
         content: { "keyword": keyword },
-        success: function (response) {
-=======
         success: function(response) {
->>>>>>> development
-            console.log(response);
             LoopThroughJSON(response);
+            console.log(response);
         },
         error: function(response) {
             alert(response);
         }
     });
-<<<<<<< HEAD
+
 }
 
 function checkboxListener() {
@@ -54,7 +46,6 @@ function checkboxListener() {
         } else {
             alert('unchecked ' + this.value);
         }
-=======
->>>>>>> development
+
 }
 

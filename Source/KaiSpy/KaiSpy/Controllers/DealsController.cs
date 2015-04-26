@@ -14,13 +14,13 @@ namespace KaiSpy.Controllers
     
     public class DealsController : ApiController
     {
-        private DealsDBContext context = new DealsDBContext();
+        private DealsDBContext _context = new DealsDBContext();
         
         
         // GET: api/Deals
         public List<Deal> Get()
         {
-            return context.Deals.ToList();
+            return _context.Deals.ToList();
         }
 
         // GET: api/Deals/5

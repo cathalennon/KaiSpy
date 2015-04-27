@@ -25,8 +25,8 @@ namespace KaiSpy
 
              bundles.Add(new ScriptBundle("~/bundles/App").Include(
                       "~/Scripts/KaiSpyApp.js",
-                      "~/Scripts/ajax-categories.js",
-                      "~/Scripts/GetDeals.js"));
+                      "~/Scripts/Ajax/*.js",
+                      "~/Scripts/Google/*.js"));
         }
     }
 }

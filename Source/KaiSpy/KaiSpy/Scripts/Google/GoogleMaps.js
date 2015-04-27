@@ -56,8 +56,6 @@ function addMarker(deal) {
 
     });
 
-
-
     var marker = new google.maps.Marker({
         position: LatLong,
         map: map,
@@ -65,7 +63,6 @@ function addMarker(deal) {
     });
 
     markers.push(marker);
-    console.log(marker);
 
     google.maps.event.addListener(marker, "click", function () {
         infowindow.open(map, marker);
@@ -93,5 +90,5 @@ function RemoveAllPinsCurrentlyOnMap() {
         markers[i].setMap(null);
     }
     markers = [];
-    $('#foodtype input').attr('checked', false);
+    $('#foodtype input').prop('checked', false);
 }

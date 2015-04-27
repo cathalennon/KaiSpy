@@ -5,7 +5,8 @@ function GetAllCategories() {
         type: "GET",
         url: BaseURI + "categories",
         datatype:"Json",
-        success: function(response) {
+        success: function (response) {
+            console.log(response);
             CreateCategoryCheckBoxes(response);
         },
         error: function (response) {
@@ -17,7 +18,12 @@ function GetAllCategories() {
 function CreateCategoryCheckBoxes(response) {
     for (var i = 0; i < response.length; i++) {
         var category = response[i];
+
         $('#foodtype').append("<input type='checkbox' value=" + category.Name + " checked = 'true'><label>" + category.Name + "</label>");
+
+        console.log(category.Name, category.Id);
+        $('#foodtype').append("<input type='checkbox' value='" + category.Name + "'><label>" + category.Name + "</label>");
+
     }
 }
 

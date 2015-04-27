@@ -2,7 +2,10 @@
     initialize();
     getAllDeals();
     GetAllCategories();
+
     $('#foodtype').on('click', 'input', checkboxListener);
+
+    $('#foodtype').on('click','input', checkboxListener);
 
 });
 var map;
@@ -81,6 +84,7 @@ function addMarker(deal) {
 
 }
 
+//Removes all markers from unchecked box
 function removeMarkers(condition) {
     
     for (var j = 0; j < condition.length; j++) {

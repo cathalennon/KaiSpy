@@ -1,10 +1,9 @@
-﻿$('document').ready(function () {
+﻿$('document').ready(function() {
     initialize();
     getAllDeals();
     GetAllCategories();
     $('#foodtype').on('click', 'input', checkboxListener);
 });
-
 
 
 function showDetails(deal) {
@@ -14,4 +13,3 @@ function showDetails(deal) {
     $('#details').append("<h3>" + deal.name + "<h3>" + dets + businessInfo);
     $('#details').show();
 }
-

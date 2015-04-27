@@ -216,7 +216,6 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Ajax\GetDeals.js" />
     <Content Include="Scripts\Google\GoogleMaps.js" />
-    <Content Include="Scripts\Google\GooglePlacesApi.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\KaiSpyApp.js" />

@@ -3,6 +3,7 @@
     getAllDeals();
     GetAllCategories();
     $('#foodtype').on('click', 'input', checkboxListener);
+    $('#removeAllPins').on('click', RemoveAllPinsCurrentlyOnMap);
 });
 
 

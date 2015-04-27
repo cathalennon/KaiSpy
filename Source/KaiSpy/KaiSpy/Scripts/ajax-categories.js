@@ -1,4 +1,4 @@
-﻿var BaseURI = "http://localhost:59080/api/categories";
+﻿var BaseURI = "http://kaispy.azurewebsites.net/api/categories";
 
 function GetAllCategories() {
     $.ajax({

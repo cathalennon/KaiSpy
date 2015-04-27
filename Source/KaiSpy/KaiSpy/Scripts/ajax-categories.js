@@ -39,7 +39,7 @@ function GetDealsFromCategoryCheckbox(keyword) {
 function GetDealsFromCategoryUnCheckbox(keyword) {
     $.ajax({
         type: "GET",
-        url: "http://localhost:59080/api/categories/" + keyword,
+        url: BaseURI + keyword,
         datatype: "json",
         success: function (response) {
             removeMarkers(response.Deals);

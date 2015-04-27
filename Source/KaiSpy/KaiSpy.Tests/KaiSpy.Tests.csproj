@@ -101,6 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CategoriesControllerTests.cs" />
     <Compile Include="Controllers\DealsControllerTests.cs" />
     <Compile Include="Models\MigrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

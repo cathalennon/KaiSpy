@@ -18,8 +18,12 @@ function GetAllCategories() {
 function CreateCategoryCheckBoxes(response) {
     for (var i = 0; i < response.length; i++) {
         var category = response[i];
+
+        $('#foodtype').append("<input type='checkbox' value=" + category.Name + " checked = 'true'><label>" + category.Name + "</label>");
+
         console.log(category.Name, category.Id);
         $('#foodtype').append("<input type='checkbox' value='" + category.Name + "'><label>" + category.Name + "</label>");
+
     }
 }
 
@@ -28,11 +32,9 @@ function GetDealsFromCategoryCheckbox(keyword) {
         type: "GET",
         url: "http://localhost:59080/api/categories/" + keyword,
         datatype: "json",
-        content: { "keyword": keyword },
         success: function(response) {
             LoopThroughJSON(response.Deals);
-            console.log(response.Deals);
-        },
+       },
         error: function(response) {
             alert(response);
         }
@@ -40,13 +42,32 @@ function GetDealsFromCategoryCheckbox(keyword) {
 
 }
 
+function GetDealsFromCategoryUnCheckbox(keyword) {
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:59080/api/categories/" + keyword,
+        datatype: "json",
+        success: function (response) {
+            removeMarkers(response.Deals);
+            console.log("data" + response.Deals);
+        },
+        error: function (response) {
+            alert(response);
+        }
+    });
+
+}
+
 function checkboxListener() {
-        if ($(this).is(":checked")) {
+    if ($(this).is(":checked")) {
+        console.log(this);
             alert('checked ' + this.value);
              GetDealsFromCategoryCheckbox(this.value);
-        } else {
-            alert('unchecked ' + this.value);
+    } else {
+        GetDealsFromCategoryUnCheckbox(this.value);
+        console.log(this.value);
+        alert('unchecked ' + this.value);
         }
-
+  
 }
 

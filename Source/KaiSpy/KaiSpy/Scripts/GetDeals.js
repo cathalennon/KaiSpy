@@ -30,4 +30,8 @@ function LoopThroughJSON(response) {
         }
         addMarker(deal);
     }
-}
+
+
+
+
+};

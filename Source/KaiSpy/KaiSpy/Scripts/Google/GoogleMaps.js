@@ -87,3 +87,11 @@ function removeMarkers(condition) {
         }
     }
 };
+
+function RemoveAllPinsCurrentlyOnMap() {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+    markers = [];
+    $('#foodtype input').attr('checked', false);
+}

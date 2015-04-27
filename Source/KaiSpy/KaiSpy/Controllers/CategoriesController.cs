@@ -20,14 +20,20 @@ namespace KaiSpy.Controllers
             {
                 Id = c.Id,
                 Name = c.Name,
-                Deals = c.Deals.Select( d=> new DealDTO() { BusinessName = d.BusinessName, Id = d.Id, Address = d.Address, Lat = d.Lat, Long = d.Long, Day = d.Day}).ToList()
+                Deals = c.Deals.Select( d=> new DealDTO { BusinessName = d.BusinessName, Id = d.Id, Address = d.Address, Lat = d.Lat, Long = d.Long, Day = d.Day}).ToList()
             });
         }
 
         // GET api/categories/5
-        public Category Get(string id)
+        public CategoryDTO Get(string id)
         {
-            return db.Categories.Where(c => c.Name == id).FirstOrDefault();
+            var temp =  db.Categories.First(c => c.Name == id);
+            return new CategoryDTO
+            {
+                Id = temp.Id,
+                Name = temp.Name,
+                Deals = temp.Deals.Select( d=> new DealDTO() { BusinessName = d.BusinessName, Id = d.Id, Address = d.Address, Lat = d.Lat, Long = d.Long, Day = d.Day}).ToList()
+            };
         }
     }
 }

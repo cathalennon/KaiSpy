@@ -18,8 +18,8 @@ function GetAllCategories() {
 function CreateCategoryCheckBoxes(response) {
     for (var i = 0; i < response.length; i++) {
         var category = response[i];
-        console.log(category.Namespace, category.Id);
-        $('#foodtype').append("<input type='checkbox' value=" + category.Name + "><label>" + category.Name + "</label>");
+        console.log(category.Name, category.Id);
+        $('#foodtype').append("<input type='checkbox' value='" + category.Name + "'><label>" + category.Name + "</label>");
     }
 }
 

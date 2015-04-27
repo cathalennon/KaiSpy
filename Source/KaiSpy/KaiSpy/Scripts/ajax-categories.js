@@ -1,9 +1,9 @@
-﻿var BaseURI = "http://localhost:59080/api/";
+﻿var BaseURI = "http://localhost:59080/api/categories";
 
 function GetAllCategories() {
     $.ajax({
         type: "GET",
-        url: BaseURI + "categories",
+        url: BaseURI,
         datatype:"Json",
         success: function (response) {
            CreateCategoryCheckBoxes(response);
@@ -17,16 +17,14 @@ function GetAllCategories() {
 function CreateCategoryCheckBoxes(response) {
     for (var i = 0; i < response.length; i++) {
         var category = response[i];
-
-    $('#foodtype').append("<input type='checkbox' value='" + category.Name + "'><label>" + category.Name + "</label>");
-
+    $('#foodtype').append("<input type='checkbox' value='" + category.Name + "' checked='true'><label>" + category.Name + "</label>");
     }
 }
 
 function GetDealsFromCategoryCheckbox(keyword) {
     $.ajax({
         type: "GET",
-        url: "http://localhost:59080/api/categories/" + keyword,
+        url: BaseURI + '/' + keyword,
         datatype: "json",
         success: function(response) {
             LoopThroughJSON(response.Deals);

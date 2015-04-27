@@ -21,7 +21,7 @@ function RemoveAllPinsCurrentlyOnMap() {
 function initialize() {
     $('#details').hide();
     var mapOptions = {
-        zoom: 18
+        zoom: 16
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
@@ -66,20 +66,17 @@ function handleNoGeolocation(errorFlag) {
 }
 
 function addMarker(deal) {
-    var name = deal.name;
+
     var LatLong = new google.maps.LatLng(deal.latitude, deal.longitude);
     var infowindow = new google.maps.InfoWindow({
         content: '<div class="marker">' + '<h3>' + deal.name + '</h3> </div>'
-
     });
-
-
 
     var marker = new google.maps.Marker({
         position: LatLong,
         map: map,
-        title: name
-    });
+        title: deal.name
+});
 
     markers.push(marker);
     console.log(marker);

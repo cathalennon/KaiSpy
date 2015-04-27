@@ -1,15 +1,22 @@
-﻿$('document').ready(function () {
+﻿$('document').ready(function() {
     initialize();
     getAllDeals();
     GetAllCategories();
 
     $('#foodtype').on('click', 'input', checkboxListener);
-
-    $('#foodtype').on('click','input', checkboxListener);
+    $('#removeAllPins').on('click', RemoveAllPinsCurrentlyOnMap);
 
 });
 var map;
 var markers = [];
+
+function RemoveAllPinsCurrentlyOnMap() {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+    markers = [];
+    $('#foodtype input').attr('checked', false);
+}
 
 function initialize() {
     $('#details').hide();

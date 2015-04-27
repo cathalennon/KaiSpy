@@ -1,10 +1,11 @@
-﻿$('document').ready(function() {
+﻿$('document').ready(function () {
     initialize();
     getAllDeals();
     GetAllCategories();
-    $('#foodtype').on('click','input', checkboxListener);
+    $('#foodtype').on('click', 'input', checkboxListener);
 });
 var map;
+var markers = [];
 
 function initialize() {
     $('#details').hide();
@@ -58,24 +59,47 @@ function addMarker(deal) {
     var LatLong = new google.maps.LatLng(deal.latitude, deal.longitude);
     var infowindow = new google.maps.InfoWindow({
         content: '<div class="marker">' + '<h3>' + deal.name + '</h3> </div>'
-        });
+
+    });
+
+
 
     var marker = new google.maps.Marker({
         position: LatLong,
         map: map,
         title: name
     });
+
+    markers.push(marker);
+    console.log(marker);
+
     google.maps.event.addListener(marker, "click", function () {
         infowindow.open(map, marker);
-            showDetails(deal);
+        showDetails(deal);
     });
-    
+
 }
+
+//Removes all markers from unchecked box
+function removeMarkers(condition) {
+    
+    for (var j = 0; j < condition.length; j++) {
+
+        for (var i = 0; i < markers.length; i++) {
+            console.log(condition[j].BusinessName);
+            if (markers[i].title === condition[j].BusinessName) {
+                markers[i].setMap(null);
+            }
+        }
+    }
+};
+
+
 
 function showDetails(deal) {
     $('#details').empty();
     var dets = "<p> Day: " + deal.day + "</p><p>" + deal.description + "</p>";
-    var businessInfo = '<div id="businessInfo"><p> Phone: ' + deal.phone + '</p><p> Address: ' + deal.address + '</p></div>'; 
+    var businessInfo = '<div id="businessInfo"><p> Phone: ' + deal.phone + '</p><p> Address: ' + deal.address + '</p></div>';
     $('#details').append("<h3>" + deal.name + "<h3>" + dets + businessInfo);
     $('#details').show();
 }

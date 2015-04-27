@@ -29,9 +29,9 @@ namespace KaiSpy.Tests.Controllers
             DealsDBContext context = new DealsDBContext();
             // Act
             var databaseLength = context.Deals.Count();
-            var getReturnLength = dc.Get().Count;
+            var getReturnLength = dc.Get();
             // Assert
-            Assert.IsTrue(databaseLength == getReturnLength);
+            Assert.IsTrue(databaseLength == getReturnLength.Count());
         }
     }
 }

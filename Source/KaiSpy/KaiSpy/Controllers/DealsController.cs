@@ -14,34 +14,30 @@ namespace KaiSpy.Controllers
     
     public class DealsController : ApiController
     {
-        private DealsDBContext _context = new DealsDBContext();
+        private DealsDBContext context = new DealsDBContext();
         
         
         // GET: api/Deals
-        public List<Deal> Get()
+        public IEnumerable<DealDTO> Get()
         {
-            return _context.Deals.ToList();
+            return context.Deals.Include(p => p.Categories).Select(d => new DealDTO
+            {
+                Id = d.Id,
+                Day = d.Day,
+                Lat = d.Lat,
+                Long = d.Long,
+                Address = d.Address,
+                BusinessName = d.BusinessName,
+                Categories = d.Categories.Select(c => new CategoryDTO() { Name = c.Name, Id = c.Id }).ToList(),
+                Description = d.Description,
+                PhoneNumber = d.PhoneNumber
+            });
         }
 
         // GET: api/Deals/5
         public string Get(int id)
         {
             return "value";
-        }
-
-        // POST: api/Deals
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/Deals/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/Deals/5
-        public void Delete(int id)
-        {
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -11,32 +12,28 @@ namespace KaiSpy.Controllers
 {
     public class CategoriesController : ApiController
     {
-        DealsDBContext db = new DealsDBContext();
+        private DealsDBContext db = new DealsDBContext();
         // GET api/categories
-        public IEnumerable<Category> Get()
+        public IEnumerable<CategoryDTO> Get()
         {
-            return db.Categories.ToList();
+            return db.Categories.Include(x => x.Deals).Select(c => new CategoryDTO
+            {
+                Id = c.Id,
+                Name = c.Name,
+                Deals = c.Deals.Select( d=> new DealDTO { BusinessName = d.BusinessName, Id = d.Id, Address = d.Address, Lat = d.Lat, Long = d.Long, Day = d.Day}).ToList()
+            });
         }
 
         // GET api/categories/5
-        public Category Get(string id)
+        public CategoryDTO Get(string id)
         {
-            return db.Categories.Where(c => c.Name == id).FirstOrDefault();
-        }
-
-        // POST api/categories
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/categories/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
+            var temp =  db.Categories.First(c => c.Name == id);
+            return new CategoryDTO
+            {
+                Id = temp.Id,
+                Name = temp.Name,
+                Deals = temp.Deals.Select( d=> new DealDTO() { BusinessName = d.BusinessName, Id = d.Id, Address = d.Address, Lat = d.Lat, Long = d.Long, Day = d.Day}).ToList()
+            };
         }
     }
 }

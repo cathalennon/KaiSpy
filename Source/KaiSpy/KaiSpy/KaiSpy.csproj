@@ -175,6 +175,7 @@
     <Compile Include="Models\Deal.cs" />
     <Compile Include="Models\DealFactory.cs" />
     <Compile Include="Models\DealsDBContext.cs" />
+    <Compile Include="Models\DTOModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

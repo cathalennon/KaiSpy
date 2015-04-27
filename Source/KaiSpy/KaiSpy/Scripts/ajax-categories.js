@@ -5,7 +5,8 @@ function GetAllCategories() {
         type: "GET",
         url: BaseURI + "categories",
         datatype:"Json",
-        success: function(response) {
+        success: function (response) {
+            console.log(response);
             CreateCategoryCheckBoxes(response);
         },
         error: function (response) {

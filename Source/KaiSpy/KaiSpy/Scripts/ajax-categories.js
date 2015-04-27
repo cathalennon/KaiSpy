@@ -42,7 +42,8 @@ function GetDealsFromCategoryUnCheckbox(keyword) {
         url: "http://localhost:59080/api/categories/" + keyword,
         datatype: "json",
         success: function (response) {
-            removeMarkers(response.Data);
+            removeMarkers(response.Deals);
+            console.log("data" + response.Deals);
         },
         error: function (response) {
             alert(response);

@@ -86,15 +86,17 @@ input {
 #map-canvas {
     height: 100%;
     width: 100%;
-    z-index: 1;
+    z-index: 999;
     display: block;
 }
 
 #loading-image {
-    display: block;
-    margin-top: 150px;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  z-index: 1;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+   position: relative;
 }
 
 input[type='range'] {

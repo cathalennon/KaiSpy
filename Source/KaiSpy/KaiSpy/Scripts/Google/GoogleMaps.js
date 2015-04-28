@@ -14,24 +14,10 @@ function initialize() {
     // Try HTML5 geolocation
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = new google.maps.LatLng(position.coords.latitude,
-                                             position.coords.longitude);
+            var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-            UserPin = new google.maps.Marker({
-                map: map,
-                position: pos,
-                title: 'You Hungry nom nom nom'
-            });
-
-            circle = new google.maps.Circle({
-                map: map,
-                radius: 3000,    // == meters
-                fillColor: '#B1FF40',
-                fillOpacity: 0.2,
-                strokeOpacity: 0.2,
-                strokeWeight: 0.8
-            });
-
+            UserPin = CreateUserPin(map, pos);
+            circle = CreateCircle(map);
             circle.bindTo('center', UserPin, 'position');
 
             map.setCenter(pos);
@@ -42,6 +28,28 @@ function initialize() {
         // Browser doesn't support Geolocation
         handleNoGeolocation(false);
     }
+}
+pin = CreateUserPin(map, top, "vundermap")
+
+function CreateUserPin(map, position) {
+    return new google.maps.Marker({
+        map: map,
+        position: position,
+        title: "You Hungry nom nom nom"
+    });
+}
+
+
+
+function CreateCircle(map) {
+    return new google.maps.Circle({
+        map: map,
+        radius: 3000,    // == meters
+        fillColor: '#B1FF40',
+        fillOpacity: 0.2,
+        strokeOpacity: 0.2,
+        strokeWeight: 0.8
+    });
 }
 
 function handleNoGeolocation(errorFlag) {

@@ -21,8 +21,8 @@
 
         </form>
         <button id="remove-all-pins" type="button">Clear All</button>
-        <button id="add-all-pins" type="button">Reset</button>
-        <input id="search-radius-slider" type="range" min="1" max="10" value="3" onchange=" SetCircleRadiusBySlider(this.value) "/>
+        <button id="add-all-pins" type="button">Show All</button>
+        <input id="search-radius-slider" type="range" min="1" max="10" value="3" oninput="SetCircleRadiusBySlider(this.value)"/>
         <span id="search-radius">3 km</span>
     </aside>
 

@@ -20,3 +20,10 @@ function ResetAllPinsToShowOnMap() {
     getAllDeals();
     $('#foodtype input').prop('checked', true);
 }
+
+function SetCircleRadiusBySlider(value) {
+
+    circle.radius = value * 1000;
+    CheckMarkerIsInRadius();
+
+}

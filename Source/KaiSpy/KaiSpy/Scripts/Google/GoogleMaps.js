@@ -6,7 +6,7 @@ var UserPin;
 function initialize() {
     $('#details').hide();
     var mapOptions = {
-        zoom: 14
+        zoom: 13
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);

@@ -109,13 +109,11 @@ function RemoveAllPinsCurrentlyOnMap() {
 }
 
 function hideGoogleMap() {
-    $('#map-canvas').hide();
     $('#loading-image').show();
 }
 
 function showGoogleMap() {
     $('#loading-image').hide();
-    $('#map-canvas').show();
 }
 
 function CheckMarkerIsInRadius() {

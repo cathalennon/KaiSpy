@@ -22,8 +22,12 @@ function ResetAllPinsToShowOnMap() {
 }
 
 function SetCircleRadiusBySlider(value) {
-
     circle.radius = value * 1000;
     CheckMarkerIsInRadius();
+    DisplaySearchRadiusOnPage(value);
+}
 
+function DisplaySearchRadiusOnPage(value) {
+    var valueToDisplay = value + " km";
+    $('#search-radius').text(valueToDisplay);
 }

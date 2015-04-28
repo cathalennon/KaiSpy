@@ -25,7 +25,7 @@ function initialize() {
 
             circle = new google.maps.Circle({
                 map: map,
-                radius: 2000,    // 10 miles in metres
+                radius: 2000,    // == meters
                 fillColor: '#B1FF40',
                 fillOpacity: 0.2,
                 strokeOpacity: 0.2,

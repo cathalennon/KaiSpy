@@ -39,7 +39,7 @@ function ResetAllPinsToShowOnMap() {
 }
 
 function loadingImage() {
-    $('#map').append('<img id="loading-image" src="/Content/imgs/pizza.png">');
+    $('#map-canvas').append('<img id="loading-image" src="/Content/imgs/pizza.png">');
 }
 
 $(function () {

@@ -43,3 +43,14 @@ $(function () {
 });
 
 
+function SetCircleRadiusBySlider(value) {
+    circle.set('radius', parseInt(value * 1000));
+    CheckMarkerIsInRadius();
+    DisplaySearchRadiusOnPage(value);
+}
+
+function DisplaySearchRadiusOnPage(value) {
+    var valueToDisplay = value + " km";
+    $('#search-radius').text(valueToDisplay);
+}
+

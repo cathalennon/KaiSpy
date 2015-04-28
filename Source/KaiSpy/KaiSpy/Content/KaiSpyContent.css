@@ -94,3 +94,8 @@ input {
     position: absolute;
     margin: 0 auto;
 }
+
+input[type='range'] {
+    position: relative;
+    width: 200px;
+}

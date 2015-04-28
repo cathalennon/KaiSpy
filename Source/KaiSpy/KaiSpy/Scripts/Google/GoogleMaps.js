@@ -1,10 +1,12 @@
 ﻿var map;
 var markers = [];
+var circle;
+var UserPin;
 
 function initialize() {
     $('#details').hide();
     var mapOptions = {
-        zoom: 18
+        zoom: 13
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
@@ -15,11 +17,22 @@ function initialize() {
             var pos = new google.maps.LatLng(position.coords.latitude,
                                              position.coords.longitude);
 
-            var infowindow = new google.maps.Marker({
+            UserPin = new google.maps.Marker({
                 map: map,
                 position: pos,
                 title: 'You Hungry nom nom nom'
             });
+
+            circle = new google.maps.Circle({
+                map: map,
+                radius: 3000,    // == meters
+                fillColor: '#B1FF40',
+                fillOpacity: 0.2,
+                strokeOpacity: 0.2,
+                strokeWeight: 0.8
+            });
+
+            circle.bindTo('center', UserPin, 'position');
 
             map.setCenter(pos);
         }, function () {
@@ -77,7 +90,6 @@ function removeMarkers(condition) {
     for (var j = 0; j < condition.length; j++) {
 
         for (var i = 0; i < markers.length; i++) {
-            console.log(condition[j].BusinessName);
             if (markers[i].title === condition[j].BusinessName) {
                 markers[i].setMap(null);
             }
@@ -102,4 +114,18 @@ function hideGoogleMap() {
 function showGoogleMap() {
     $('#loading-image').hide();
     $('#map-canvas').show();
+}
+
+function CheckMarkerIsInRadius() {
+
+    for (var i = 0; i < markers.length; i++) {
+        var marker = markers[i];
+        var distance = google.maps.geometry.spherical.computeDistanceBetween(marker.position, UserPin.position);
+        if (distance > circle.radius) {
+            marker.setVisible(false);
+        }
+        else {
+            marker.setVisible(true);
+        }
+    }
 }

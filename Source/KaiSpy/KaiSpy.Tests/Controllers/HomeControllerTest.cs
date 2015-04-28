@@ -8,18 +8,19 @@ namespace KaiSpy.Tests.Controllers
     [TestClass]
     public class HomeControllerTest
     {
-//        [TestMethod]
-//        public void Index()
-//        {
-//            // Arrange
-//            HomeController controller = new HomeController();
-//
-//            // Act
-//            ViewResult result = controller.Index() as ViewResult;
-//
-//            // Assert
-//            Assert.IsNotNull(result);
-//            Assert.AreEqual("Home Page", result.ViewBag.Title);
-//        }
+
+        [TestMethod]
+        public void Home_Controller_index_method_returns_expected_title()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            ViewResult result = controller.Index() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual("Home Page", result.ViewBag.Title);
+        }
     }
 }

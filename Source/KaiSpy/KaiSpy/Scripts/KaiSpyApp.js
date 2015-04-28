@@ -5,7 +5,6 @@
     $('#foodtype').on('click', 'input', checkboxListener);
     $('#remove-all-pins').on('click', RemoveAllPinsCurrentlyOnMap);
     $('#add-all-pins').on('click', ResetAllPinsToShowOnMap);
-    setInterval(CheckMarkerIsInRadius, 10000);
 });
 
 
@@ -20,4 +19,11 @@ function showDetails(deal) {
 function ResetAllPinsToShowOnMap() {
     getAllDeals();
     $('#foodtype input').prop('checked', true);
+}
+
+function SetCircleRadiusBySlider(value) {
+
+    circle.radius = value * 1000;
+    CheckMarkerIsInRadius();
+
 }

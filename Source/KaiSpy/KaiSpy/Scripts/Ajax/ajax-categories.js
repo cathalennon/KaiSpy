@@ -1,12 +1,18 @@
-﻿var BaseURI = "http://localhost:59080/api/categories";
+﻿function AjaxCategoriesModel() {
 
-function GetAllCategories() {
+    this.BaseURI = "http://localhost:59080/api/categories";
+    this.View = new AjaxCategoriesView();
+
+}
+
+AjaxCategoriesModel.prototype.GetAllCategories = function () {
+    view = new AjaxCategoriesView();
     $.ajax({
         type: "GET",
-        url: BaseURI,
-        datatype:"Json",
+        url: this.BaseURI,
+        datatype: "Json",
         success: function (response) {
-           CreateCategoryCheckBoxes(response);
+            view.CreateCategoryCheckBoxes(response);
         },
         error: function (response) {
             alert(response);
@@ -14,50 +20,61 @@ function GetAllCategories() {
     });
 }
 
-function CreateCategoryCheckBoxes(response) {
+AjaxCategoriesModel.prototype.GetDealsFromCategoryCheckbox = function(keyword) {
+    $.ajax({
+        type: "GET",
+        url: this.BaseURI + '/' + keyword,
+        datatype: "json",
+        success: function (response) {
+            LoopThroughJSON(response.Deals);
+        },
+        error: function (response) {
+            alert(response);
+        }
+    });
+}
+
+AjaxCategoriesModel.prototype.GetDealsFromCategoryUnCheckbox = function(keyword) {
+    $.ajax({
+        type: "GET",
+        url: this.BaseURI + "/" + keyword,
+        datatype: "json",
+        success: function (response) {
+            removeMarkers(response.Deals);
+        },
+        error: function (response) {
+            alert(response);
+        }
+    });
+}
+
+//------------------------Categories View
+
+
+function AjaxCategoriesView() {
+    
+}
+
+
+AjaxCategoriesView.prototype.CreateCategoryCheckBoxes = function(response) {
     for (var i = 0; i < response.length; i++) {
         var category = response[i];
     $('#foodtype').append("<div class='category-checkbox'><input type='checkbox' value='" + category.Name + "' checked='true'><label>" + category.Name + "</label><div>");
     }
 }
 
-function GetDealsFromCategoryCheckbox(keyword) {
-    $.ajax({
-        type: "GET",
-        url: BaseURI + '/' + keyword,
-        datatype: "json",
-        success: function(response) {
-            LoopThroughJSON(response.Deals);
-       },
-        error: function(response) {
-            alert(response);
-        }
-    });
 
-}
+//-------------------------Not Sure about This One
 
-function GetDealsFromCategoryUnCheckbox(keyword) {
-    $.ajax({
-        type: "GET",
-        url: "http://localhost:59080/api/categories/" + keyword,
-        datatype: "json",
-        success: function (response) {
-            removeMarkers(response.Deals);
-            },
-        error: function (response) {
-            alert(response);
-        }
-    });
-
-}
 
 function checkboxListener() {
+    model = new AjaxCategoriesModel();
     if ($(this).is(":checked")) {
         hideGoogleMap();
-        GetDealsFromCategoryCheckbox(this.value);
+        model.GetDealsFromCategoryCheckbox(this.value);
     } else {
         hideGoogleMap();
-        GetDealsFromCategoryUnCheckbox(this.value);
+        model.GetDealsFromCategoryUnCheckbox(this.value);
     }
   
 }

@@ -99,11 +99,13 @@ function removeMarkers(condition) {
 };
 
 function RemoveAllPinsCurrentlyOnMap() {
+    hideGoogleMap();
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
     }
     markers = [];
     $('#foodtype input').prop('checked', false);
+    showGoogleMap();
 }
 
 function hideGoogleMap() {

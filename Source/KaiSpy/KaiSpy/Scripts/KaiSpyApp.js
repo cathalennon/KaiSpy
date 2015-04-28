@@ -20,12 +20,13 @@ function showDetails(deal) {
 }
 
 function ResetAllPinsToShowOnMap() {
+    hideGoogleMap();
     getAllDeals();
     $('#foodtype input').prop('checked', true);
 }
 
 function loadingImage() {
-    $('#map').append('<img id="loading-image" src="/Content/imgs/pizza.png"></img>');
+    $('#map').append('<img id="loading-image" src="/Content/imgs/pizza.png">');
 }
 
 $(function () {

@@ -12,9 +12,15 @@
     $('#loading-image').hide();
 });
 
-function AjaxControllers() {
-    this.CategoriesModel = new AjaxCategoriesModel();
-    this.CategoriesView = new AjaxCategoriesView();
+function checkboxListener() {
+    model = new AjaxCategoriesModel();
+    if ($(this).is(":checked")) {
+        hideGoogleMap();
+        model.GetDealsFromCategoryCheckbox(this.value);
+    } else {
+        hideGoogleMap();
+        model.GetDealsFromCategoryUnCheckbox(this.value);
+    }
 }
 
 

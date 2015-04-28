@@ -6,7 +6,7 @@ ApiRequest.prototype.getAllDeals = function()*/
 function getAllDeals() {
     $.ajax({
         type: 'GET',
-        url: 'http://kaispy.azurewebsites.net/api/deals',
+        url: 'http://localhost:59080/api/deals',
         datatype: 'json'
     }).done(function (data) {
         LoopThroughJSON(data);
@@ -16,7 +16,6 @@ function getAllDeals() {
 };
 
 function LoopThroughJSON(response) {
-    console.log(response);
     for (var i = 0; i < response.length; i++) {
         var d = response[i];
         var deal = {
@@ -30,8 +29,4 @@ function LoopThroughJSON(response) {
         }
         addMarker(deal);
     }
-
-
-
-
 };

@@ -1,103 +1,27 @@
 ﻿$('document').ready(function () {
+    var ajaxController = new AjaxControllers();
+
     initialize();
     getAllDeals();
-    GetAllCategories();
-
-    $('#foodtype').on('click', 'input', checkboxListener);
-
-    $('#foodtype').on('click','input', checkboxListener);
-
-});
-var map;
-var markers = [];
-
-function initialize() {
-    $('#details').hide();
-    var mapOptions = {
-        zoom: 18
-    };
-    map = new google.maps.Map(document.getElementById('map-canvas'),
-        mapOptions);
-
-    // Try HTML5 geolocation
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = new google.maps.LatLng(position.coords.latitude,
-                                             position.coords.longitude);
-
-            var infowindow = new google.maps.Marker({
-                map: map,
-                position: pos,
-                title: 'You Hungry nom nom nom'
-            });
-
-            map.setCenter(pos);
-        }, function () {
-            handleNoGeolocation(true);
-        });
-    } else {
-        // Browser doesn't support Geolocation
-        handleNoGeolocation(false);
-    }
-}
-
-function handleNoGeolocation(errorFlag) {
-    if (errorFlag) {
-        var content = 'Error: The Geolocation service failed.';
-    } else {
-        var content = 'Error: Your browser doesn\'t support geolocation.';
-    }
-
-    var options = {
-        map: map,
-        position: new google.maps.LatLng(60, 105),
-        content: content
-    };
-
-    var infowindow = new google.maps.InfoWindow(options);
-    map.setCenter(options.position);
-}
-
-function addMarker(deal) {
-    var name = deal.name;
-    var LatLong = new google.maps.LatLng(deal.latitude, deal.longitude);
-    var infowindow = new google.maps.InfoWindow({
-        content: '<div class="marker">' + '<h3>' + deal.name + '</h3> </div>'
-
-    });
-
-
-
-    var marker = new google.maps.Marker({
-        position: LatLong,
-        map: map,
-        title: name
-    });
-
-    markers.push(marker);
-    console.log(marker);
-
-    google.maps.event.addListener(marker, "click", function () {
-        infowindow.open(map, marker);
-        showDetails(deal);
-    });
-
-}
-
-//Removes all markers from unchecked box
-function removeMarkers(condition) {
     
-    for (var j = 0; j < condition.length; j++) {
+    ajaxController.CategoriesModel.GetAllCategories();
+    $('#foodtype').on('click', 'input', checkboxListener);
+    $('#remove-all-pins').on('click', RemoveAllPinsCurrentlyOnMap);
+    $('#add-all-pins').on('click', ResetAllPinsToShowOnMap);
+    loadingImage();
+    $('#loading-image').hide();
+});
 
-        for (var i = 0; i < markers.length; i++) {
-            console.log(condition[j].BusinessName);
-            if (markers[i].title === condition[j].BusinessName) {
-                markers[i].setMap(null);
-            }
-        }
+function checkboxListener() {
+    model = new AjaxCategoriesModel();
+    if ($(this).is(":checked")) {
+        hideGoogleMap();
+        model.GetDealsFromCategoryCheckbox(this.value);
+    } else {
+        hideGoogleMap();
+        model.GetDealsFromCategoryUnCheckbox(this.value);
     }
-};
-
+}
 
 
 function showDetails(deal) {
@@ -106,5 +30,44 @@ function showDetails(deal) {
     var businessInfo = '<div id="businessInfo"><p> Phone: ' + deal.phone + '</p><p> Address: ' + deal.address + '</p></div>';
     $('#details').append("<h3>" + deal.name + "<h3>" + dets + businessInfo);
     $('#details').show();
+}
+
+function ResetAllPinsToShowOnMap() {
+    hideGoogleMap();
+    getAllDeals();
+    $('#foodtype input').prop('checked', true);
+    circle.set('radius', parseInt(3000));
+    $('#search-radius-slider').prop('value', 3);
+    $('#search-radius').text("3 km");
+}
+
+function loadingImage() {
+    $('#map-canvas').append('<img id="loading-image" src="/Content/imgs/pizza.png">');
+}
+
+$(function () {
+    var $elie = $("#loading-image"), degree = 0;
+    rotate();
+    function rotate() {
+
+        $elie.css({ WebkitTransform: 'rotate(' + degree + 'deg)' });
+        $elie.css({ '-moz-transform': 'rotate(' + degree + 'deg)' });
+        setTimeout(function () {
+            ++degree; rotate();
+        }, 5);
+    }
+
+});
+
+
+function SetCircleRadiusBySlider(value) {
+    circle.set('radius', parseInt(value * 1000));
+    CheckMarkerIsInRadius();
+    DisplaySearchRadiusOnPage(value);
+}
+
+function DisplaySearchRadiusOnPage(value) {
+    var valueToDisplay = value + " km";
+    $('#search-radius').text(valueToDisplay);
 }
 

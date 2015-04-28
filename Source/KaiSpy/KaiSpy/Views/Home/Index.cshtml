@@ -2,11 +2,13 @@
 @{ Layout = null;}
 
 <html>
-<head> 
-   <title>KaiSpy</title>
+<head>
+    <title>KaiSpy</title>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/App")
     @Styles.Render("~/Content/css")
+
 
     <link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine-2.0.0/jasmine_favicon.png">
     <link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine-2.0.0/jasmine.css">
@@ -17,6 +19,7 @@
 
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
 </head>
 <body>
     <header><img src="~/Content/imgs/KaiSpy logo.png"/>
@@ -25,12 +28,17 @@
     <aside id="pref">
         <h3>Preferences:</h3>
 
-        <form id ="foodtype">
+        <form id="foodtype">
 
         </form>
+        <button id="remove-all-pins" type="button">Clear All</button>
+        <button id="add-all-pins" type="button">Show All</button>
+        <input id="search-radius-slider" type="range" min="1" max="10" value="3" oninput="SetCircleRadiusBySlider(this.value)"/>
+        <span id="search-radius">3 km</span>
     </aside>
 
-    <section id ='map-canvas'>
+    <section id='map'>
+        <div id='map-canvas'></div> 
     </section>
 
     <section id="details">

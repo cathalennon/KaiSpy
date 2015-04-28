@@ -6,7 +6,7 @@ var UserPin;
 function initialize() {
     $('#details').hide();
     var mapOptions = {
-        zoom: 14
+        zoom: 13
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
@@ -25,7 +25,7 @@ function initialize() {
 
             circle = new google.maps.Circle({
                 map: map,
-                radius: 2000,    // == meters
+                radius: 3000,    // == meters
                 fillColor: '#B1FF40',
                 fillOpacity: 0.2,
                 strokeOpacity: 0.2,

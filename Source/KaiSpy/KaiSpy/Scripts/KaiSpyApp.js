@@ -22,7 +22,7 @@ function ResetAllPinsToShowOnMap() {
 }
 
 function SetCircleRadiusBySlider(value) {
-    circle.radius = value * 1000;
+    circle.set('radius', parseInt(value * 1000));
     CheckMarkerIsInRadius();
     DisplaySearchRadiusOnPage(value);
 }

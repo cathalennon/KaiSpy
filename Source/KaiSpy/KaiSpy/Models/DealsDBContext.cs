@@ -1,8 +1,8 @@
+using System.Data.Entity;
+using System.Linq;
+
 namespace KaiSpy.Models
 {
-    using System;
-    using System.Data.Entity;
-    using System.Linq;
 
     public class DealsDBContext : DbContext
     {

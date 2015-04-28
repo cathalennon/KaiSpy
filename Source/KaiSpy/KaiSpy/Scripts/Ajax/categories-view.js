@@ -1,7 +1,7 @@
 ﻿function CategoriesView() {
 
 }
-
+//done
 CategoriesView.prototype.CreateCategoryCheckBoxes = function (response) {
     for (var i = 0; i < response.length; i++) {
         var category = response[i];

@@ -1,7 +1,10 @@
-﻿$('document').ready(function() {
+﻿$('document').ready(function () {
+    var ajaxController = new AjaxControllers();
+
     initialize();
     getAllDeals();
-    GetAllCategories();
+    
+    ajaxController.CategoriesModel.GetAllCategories();
     $('#foodtype').on('click', 'input', checkboxListener);
     $('#remove-all-pins').on('click', RemoveAllPinsCurrentlyOnMap);
     $('#add-all-pins').on('click', ResetAllPinsToShowOnMap);
@@ -9,6 +12,10 @@
     $('#loading-image').hide();
 });
 
+function AjaxControllers() {
+    this.CategoriesModel = new AjaxCategoriesModel();
+    this.CategoriesView = new AjaxCategoriesView();
+}
 
 
 function showDetails(deal) {

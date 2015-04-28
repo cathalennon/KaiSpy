@@ -1,6 +1,6 @@
 ﻿function AjaxCategoriesModel() {
 
-    this.BaseURI = "http://localhost:59080/api/categories";
+    this.BaseURI = "/api/categories";
     this.View = new AjaxCategoriesView();
 
 }

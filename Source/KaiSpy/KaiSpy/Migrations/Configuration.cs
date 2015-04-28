@@ -36,7 +36,7 @@ namespace KaiSpy.Migrations
 
             context.Deals.AddOrUpdate(
                 d => d.Description,
-                    dealFactory.CreateDeal("Monday", -41.292683, 174.779503, new[] { "Pub", "Bar" },
+                    dealFactory.CreateDeal("Monday", -41.2926425985115, 174.779055962348, new[] { "Pub", "Bar" },
                         "2 for 1 Mains on Monday!", "The Residence", 
                         "120 Courtenay Place, Te Aro, Wellington 6011", 04 - 801 - 6076),
                     dealFactory.CreateDeal("Tuesday", -41.292495, 174.779209, new[] { "Italian", "Bar", "Pizza" },

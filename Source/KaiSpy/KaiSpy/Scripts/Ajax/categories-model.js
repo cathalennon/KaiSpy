@@ -6,18 +6,20 @@
 }
 
 AjaxCategoriesModel.prototype.GetAllCategories = function () {
-    view = new CategoriesView();
+    var result;
     $.ajax({
         type: "GET",
         url: this.BaseURI,
         datatype: "Json",
-        success: function (response) {
-            view.CreateCategoryCheckBoxes(response);
+        success: function(response) {
+            result = response;
         },
-        error: function (response) {
+        error: function(response) {
             alert(response);
-        }
-    });
+        },
+        async: false
+});
+    return result;
 }
 
 AjaxCategoriesModel.prototype.GetDealsFromCategoryCheckbox = function (keyword) {

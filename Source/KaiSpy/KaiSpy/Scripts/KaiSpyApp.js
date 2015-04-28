@@ -1,10 +1,10 @@
 ﻿$('document').ready(function () {
-    var ajaxController = new AjaxControllers();
+    var categoryController = new CategoryController();
 
     initialize();
     getAllDeals();
-    
-    ajaxController.CategoriesModel.GetAllCategories();
+
+    categoryController.ShowCategoryCheckboxes();
     $('#foodtype').on('click', 'input', checkboxListener);
     $('#remove-all-pins').on('click', RemoveAllPinsCurrentlyOnMap);
     $('#add-all-pins').on('click', ResetAllPinsToShowOnMap);

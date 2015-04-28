@@ -187,6 +187,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\imgs\KaiSpy logo.png" />
+    <Content Include="Content\imgs\pizza.png" />
     <Content Include="Content\KaiSpyContent.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

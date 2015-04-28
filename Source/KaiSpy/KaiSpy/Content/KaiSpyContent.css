@@ -14,15 +14,15 @@ nav {
 	margin: 3px;
 	}
 
-#map-canvas {
+#map {
     border-radius: 10px;
     min-width: 400px;
 	width: 60%;
 	height: 400px;
-	border: solid 2px blue;
 	float: left;
 	margin: 1%;
-	
+    position: relative;
+    background-color: grey;
 }
 
 aside {
@@ -81,4 +81,16 @@ input {
     width: 50%;
     padding-top: 10px;
     position: relative;
+}
+
+#map-canvas {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    display: block;
+}
+
+#loading-image {
+    position: absolute;
+    margin: 0 auto;
 }

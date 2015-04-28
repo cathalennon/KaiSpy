@@ -5,7 +5,10 @@
     $('#foodtype').on('click', 'input', checkboxListener);
     $('#remove-all-pins').on('click', RemoveAllPinsCurrentlyOnMap);
     $('#add-all-pins').on('click', ResetAllPinsToShowOnMap);
+    loadingImage();
+    $('#loading-image').hide();
 });
+
 
 
 function showDetails(deal) {
@@ -20,3 +23,23 @@ function ResetAllPinsToShowOnMap() {
     getAllDeals();
     $('#foodtype input').prop('checked', true);
 }
+
+function loadingImage() {
+    $('#map').append('<img id="loading-image" src="/Content/imgs/pizza.png"></img>');
+}
+
+$(function () {
+    var $elie = $("#loading-image"), degree = 0;
+    rotate();
+    function rotate() {
+
+        $elie.css({ WebkitTransform: 'rotate(' + degree + 'deg)' });
+        $elie.css({ '-moz-transform': 'rotate(' + degree + 'deg)' });
+        setTimeout(function () {
+            ++degree; rotate();
+        }, 5);
+    }
+
+});
+
+

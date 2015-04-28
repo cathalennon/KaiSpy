@@ -82,3 +82,8 @@ input {
     padding-top: 10px;
     position: relative;
 }
+
+input[type='range'] {
+    position: relative;
+    width: 200px;
+}

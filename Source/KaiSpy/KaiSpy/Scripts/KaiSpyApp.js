@@ -5,6 +5,7 @@
     $('#foodtype').on('click', 'input', checkboxListener);
     $('#remove-all-pins').on('click', RemoveAllPinsCurrentlyOnMap);
     $('#add-all-pins').on('click', ResetAllPinsToShowOnMap);
+    setInterval(CheckMarkerIsInRadius, 10000);
 });
 
 

@@ -8,6 +8,7 @@ namespace KaiSpy.Tests.Controllers
     [TestClass]
     public class HomeControllerTest
     {
+
         [TestMethod]
         public void Home_Controller_index_method_returns_expected_title()
         {

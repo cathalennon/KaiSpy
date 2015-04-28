@@ -81,7 +81,7 @@ function addMarker(deal) {
         infowindow.open(map, marker);
         showDetails(deal);
     });
-
+    showGoogleMap();
 }
 
 //Removes all markers from unchecked box
@@ -95,6 +95,7 @@ function removeMarkers(condition) {
             }
         }
     }
+    showGoogleMap();
 };
 
 function RemoveAllPinsCurrentlyOnMap() {
@@ -103,6 +104,16 @@ function RemoveAllPinsCurrentlyOnMap() {
     }
     markers = [];
     $('#foodtype input').prop('checked', false);
+}
+
+function hideGoogleMap() {
+    $('#map-canvas').hide();
+    $('#loading-image').show();
+}
+
+function showGoogleMap() {
+    $('#loading-image').hide();
+    $('#map-canvas').show();
 }
 
 function CheckMarkerIsInRadius() {

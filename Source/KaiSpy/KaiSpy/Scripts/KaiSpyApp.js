@@ -5,7 +5,10 @@
     $('#foodtype').on('click', 'input', checkboxListener);
     $('#remove-all-pins').on('click', RemoveAllPinsCurrentlyOnMap);
     $('#add-all-pins').on('click', ResetAllPinsToShowOnMap);
+    loadingImage();
+    $('#loading-image').hide();
 });
+
 
 
 function showDetails(deal) {
@@ -21,6 +24,25 @@ function ResetAllPinsToShowOnMap() {
     $('#foodtype input').prop('checked', true);
 }
 
+function loadingImage() {
+    $('#map').append('<img id="loading-image" src="/Content/imgs/pizza.png"></img>');
+}
+
+$(function () {
+    var $elie = $("#loading-image"), degree = 0;
+    rotate();
+    function rotate() {
+
+        $elie.css({ WebkitTransform: 'rotate(' + degree + 'deg)' });
+        $elie.css({ '-moz-transform': 'rotate(' + degree + 'deg)' });
+        setTimeout(function () {
+            ++degree; rotate();
+        }, 5);
+    }
+
+});
+
+
 function SetCircleRadiusBySlider(value) {
     circle.set('radius', parseInt(value * 1000));
     CheckMarkerIsInRadius();
@@ -31,3 +53,4 @@ function DisplaySearchRadiusOnPage(value) {
     var valueToDisplay = value + " km";
     $('#search-radius').text(valueToDisplay);
 }
+

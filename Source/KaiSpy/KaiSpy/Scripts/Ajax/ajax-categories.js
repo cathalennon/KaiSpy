@@ -53,10 +53,12 @@ function GetDealsFromCategoryUnCheckbox(keyword) {
 
 function checkboxListener() {
     if ($(this).is(":checked")) {
+        hideGoogleMap();
         GetDealsFromCategoryCheckbox(this.value);
     } else {
+        hideGoogleMap();
         GetDealsFromCategoryUnCheckbox(this.value);
-        }
+    }
   
 }
 

@@ -1,5 +1,19 @@
-﻿body {
+﻿@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+body {
     min-width: 900px;
+}
+
+p {
+    
+      display: block;
+      top: 15px;
+      margin-left: 50%;
+      margin-right: auto;
+      font-size: 70px;
+      padding-top: 12px;
+      font-family: Lobster;
+
 }
 
 header {

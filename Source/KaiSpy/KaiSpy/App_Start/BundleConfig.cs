@@ -24,12 +24,11 @@ namespace KaiSpy
                       "~/Content/KaiSpyContent.css"));
 
              bundles.Add(new ScriptBundle("~/bundles/App").Include(
-                      "~/Scripts/Ajax/*.js",
                       "~/Scripts/Models/*.js",
                       "~/Scripts/Views/*.js",
                       "~/Scripts/Controllers/*.js",
                       "~/Scripts/Google/*.js",
-                      "~/Scripts/KaiSpyApp.js"));
+                      "~/Scripts/Router/*.js"));
         }
     }
 }

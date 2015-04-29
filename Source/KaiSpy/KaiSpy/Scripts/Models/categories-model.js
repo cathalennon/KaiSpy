@@ -1,10 +1,9 @@
 ﻿function AjaxCategoriesModel() {
 
-    this.BaseURI = "http://localhost:59080/api/categories";
-    this.View = new CategoriesView();
+    this.BaseURI = "/api/categories";
 
 }
-//done
+
 AjaxCategoriesModel.prototype.GetAllCategories = function () {
     var result;
     $.ajax({
@@ -21,7 +20,7 @@ AjaxCategoriesModel.prototype.GetAllCategories = function () {
     });
     return result;
 }
-//done
+
 AjaxCategoriesModel.prototype.GetDealsFromCategoryCheckbox = function (keyword) {
     var result;
     $.ajax({
@@ -38,7 +37,7 @@ AjaxCategoriesModel.prototype.GetDealsFromCategoryCheckbox = function (keyword) 
     });
     return result;
 }
-//done
+
 AjaxCategoriesModel.prototype.GetDealsFromCategoryUnCheckbox = function (keyword) {
     var result;
     $.ajax({

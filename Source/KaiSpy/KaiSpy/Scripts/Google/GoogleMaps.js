@@ -17,6 +17,7 @@ function initialize() {
             var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
             UserPin = CreateUserPin(map, pos);
+            UserPin.setAnimation(google.maps.Animation.BOUNCE);
             circle = CreateCircle(map);
             circle.bindTo('center', UserPin, 'position');
 

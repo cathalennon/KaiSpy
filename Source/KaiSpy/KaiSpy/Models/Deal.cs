@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using Newtonsoft.Json;
 
 namespace KaiSpy.Models
 {
@@ -19,5 +15,13 @@ namespace KaiSpy.Models
         public string BusinessName { get; set; }
         public string Address { get; set; }
         public long PhoneNumber { get; set; }
+        public int RatingCount { get; set; }
+        public string Rating_img { get; set; }
+        public string YelpBusinessId { get; set; }
+        public int Rating { get; set; }
+        public bool IsClosed { get; set; }
+
+
+
     }
 }

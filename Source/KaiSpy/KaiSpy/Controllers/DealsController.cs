@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Runtime.InteropServices;
 using System.Web.Http;
 using KaiSpy.Models;
-using Newtonsoft.Json;
 
 namespace KaiSpy.Controllers
 {
-    
+
     public class DealsController : ApiController
     {
         private DealsDBContext context = new DealsDBContext();
-        
-        
+
         // GET: api/Deals
         public IEnumerable<DealDTO> Get()
         {
@@ -32,12 +26,6 @@ namespace KaiSpy.Controllers
                 Description = d.Description,
                 PhoneNumber = d.PhoneNumber
             });
-        }
-
-        // GET: api/Deals/5
-        public string Get(int id)
-        {
-            return "value";
         }
     }
 }

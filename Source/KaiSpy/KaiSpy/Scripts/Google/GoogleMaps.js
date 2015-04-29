@@ -29,7 +29,6 @@ function initialize() {
         handleNoGeolocation(false);
     }
 }
-pin = CreateUserPin(map, top, "vundermap")
 
 function CreateUserPin(map, position) {
     return new google.maps.Marker({

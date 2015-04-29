@@ -1,15 +1,9 @@
-using System.Collections.Generic;
-using System.Threading;
+using System.Data.Entity.Migrations;
 using KaiSpy.Models;
 
 namespace KaiSpy.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<KaiSpy.Models.DealsDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DealsDBContext>
     {
         public Configuration()
         {
@@ -39,7 +33,7 @@ namespace KaiSpy.Migrations
 
             context.Deals.AddOrUpdate(
                 d => d.Description,
-                    dealFactory.CreateDeal("Monday", -41.292683, 174.779503, new[] { "Pub", "Bar" },
+                    dealFactory.CreateDeal("Monday", -41.2926425985115, 174.779055962348, new[] { "Pub", "Bar" },
                         "2 for 1 Mains on Monday!", "The Residence", 
                         "120 Courtenay Place, Te Aro, Wellington 6011", 048016076),
                     dealFactory.CreateDeal("Tuesday", -41.292495, 174.779209, new[] { "Italian", "Bar", "Pizza" },
@@ -53,7 +47,7 @@ namespace KaiSpy.Migrations
                         "6 Edward St, Te Aro, Wellington 6011", 048033304),
                     dealFactory.CreateDeal("Friday", -41.288724, 174.769659, new[] { "General" },
                         "2 for 1 Margherita Pizzas after 3pm!", "Hunter Lounge",
-                        "Third Floor, Student Union Building, Vic Uni, 1 Kelburn Parade, Kelburn, Wellington 6012", 04 - 463 - 4712),
+                        "Third Floor, Student Union Building, Vic Uni, 1 Kelburn Parade, Kelburn, Wellington 6012", 044634712),
                     dealFactory.CreateDeal("Saturday", -41.293834, 174.783567, new[] { "General" },
                         "Wagyu wonder burger and a tap beer for $20 from 10am-6pm", "Tasting Room",
                         "2 Courtenay Place, Te Aro 6011", 043841159),
@@ -74,7 +68,7 @@ namespace KaiSpy.Migrations
                         "165 Oriental Terrace, Oriental Bay, Wellington 6011", 049393935),
                     dealFactory.CreateDeal("Friday", -41.319986, 174.775429, new[] {"General", "Pub"},
                         "$9 sandwiches with free house-cut chips + lemon mayo at lunch. I can vouch for the deliciousness (try the haloumi sandwich!)", "Goose Shack",
-                        "465 Adelaide Rd, Berhampore, Wellington", 6023043897171),
+                        "465 Adelaide Rd, Berhampore, Wellington 6023", 043897171),
                     dealFactory.CreateDeal("Saturday", -41.284607, 174.776385, new[] {"Mexican", "Bar"},
                         "All Fajitas for $28 (chicken, beef or prawn & squid)", "Arizona",
                         "171-175 Featherston St, Wellington, 6011", 044957867),

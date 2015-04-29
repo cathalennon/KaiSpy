@@ -159,7 +159,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Clients\YelpDto.cs" />
+    <Compile Include="Controllers\BugFixController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Clients\YelpClient.cs" />
     <Compile Include="Controllers\DealsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -178,7 +181,6 @@
     <Compile Include="Models\Deal.cs" />
     <Compile Include="Models\DealFactory.cs" />
     <Compile Include="Models\DealsDBContext.cs" />
-    <Compile Include="Models\HoursApi.cs" />
     <Compile Include="Models\DTOModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

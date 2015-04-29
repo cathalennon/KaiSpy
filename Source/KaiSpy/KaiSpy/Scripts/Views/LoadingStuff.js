@@ -5,19 +5,18 @@
 }
 
 function RenderInitalPage() {
-     PlaceLoadingImage();
+    PlaceLoadingImage();
     initialize();
 }
 
 function LoadCategoriesEventListeners() {
     var categoryController = new CategoryController();
-    categoryController.ShowCategoryCheckboxes(); //done
+    categoryController.ShowCategoryCheckboxes(); 
     $('#foodtype').on('click', 'input', categoryController.ShowSelectedCategory.bind(categoryController));
 }
 
 function LoadDealsEventListeners() {
     var dealController = new DealsController();
-    dealController.ShowAllDeals();
     $('#remove-all-pins').on('click', RemoveAllPinsCurrentlyOnMap);
     $('#add-all-pins').on('click', dealController.ShowAllDeals.bind(dealController));
 }

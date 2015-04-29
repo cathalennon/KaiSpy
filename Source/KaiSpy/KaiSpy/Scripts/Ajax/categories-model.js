@@ -4,7 +4,7 @@
     this.View = new CategoriesView();
 
 }
-//done
+
 AjaxCategoriesModel.prototype.GetAllCategories = function () {
     var result;
     $.ajax({

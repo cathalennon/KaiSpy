@@ -1,26 +1,20 @@
 ﻿$('document').ready(function () {
-    var categoryController = new CategoryController();
-
-    initialize();
-    getAllDeals();
-
-    categoryController.ShowCategoryCheckboxes(); //done
-    $('#foodtype').on('click', 'input', checkboxListener);
-    $('#remove-all-pins').on('click', RemoveAllPinsCurrentlyOnMap);
-    $('#add-all-pins').on('click', ResetAllPinsToShowOnMap);
-    loadingImage();
-    $('#loading-image').hide();
+    LoadHomePage();
 });
 
-function checkboxListener() {
-    model = new AjaxCategoriesModel();
-    if ($(this).is(":checked")) {
-        hideGoogleMap();
-        model.GetDealsFromCategoryCheckbox(this.value);
-    } else {
-        hideGoogleMap();
-        model.GetDealsFromCategoryUnCheckbox(this.value);
-    }
+function LoadHomePage() {
+    var categoryController = new CategoryController();
+    startloadingImage();
+    initialize();
+    loadingImage();
+    
+    getAllDeals();
+    categoryController.ShowCategoryCheckboxes(); //done
+    $('#foodtype').on('click', 'input', categoryController.ShowSelectedCategory.bind(categoryController));
+    $('#remove-all-pins').on('click', RemoveAllPinsCurrentlyOnMap);
+    $('#add-all-pins').on('click', ResetAllPinsToShowOnMap);
+
+    startloadingImage(); 
 }
 
 
@@ -33,7 +27,7 @@ function showDetails(deal) {
 }
 
 function ResetAllPinsToShowOnMap() {
-    hideGoogleMap();
+    startloadingImage();
     getAllDeals();
     $('#foodtype input').prop('checked', true);
     circle.set('radius', parseInt(3000));
@@ -47,7 +41,6 @@ function loadingImage() {
 
 $(function () {
     var $elie = $("#loading-image"), degree = 0;
-    rotate();
     function rotate() {
 
         $elie.css({ WebkitTransform: 'rotate(' + degree + 'deg)' });
@@ -56,7 +49,7 @@ $(function () {
             ++degree; rotate();
         }, 5);
     }
-
+    rotate();
 });
 
 

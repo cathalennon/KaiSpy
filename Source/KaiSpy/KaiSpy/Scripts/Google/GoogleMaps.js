@@ -89,7 +89,7 @@ function addMarker(deal) {
         infowindow.open(map, marker);
         showDetails(deal);
     });
-    showGoogleMap();
+    stopLoadingImage();
 }
 
 //Removes all markers from unchecked box
@@ -103,24 +103,24 @@ function removeMarkers(condition) {
             }
         }
     }
-    showGoogleMap();
+    stopLoadingImage();
 };
 
 function RemoveAllPinsCurrentlyOnMap() {
-    hideGoogleMap();
+    startloadingImage();
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
     }
     markers = [];
     $('#foodtype input').prop('checked', false);
-    showGoogleMap();
+    stopLoadingImage();
 }
 
-function hideGoogleMap() {
+function startloadingImage() {
     $('#loading-image').show();
 }
 
-function showGoogleMap() {
+function stopLoadingImage() {
     $('#loading-image').hide();
 }
 

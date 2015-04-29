@@ -4,6 +4,8 @@
 }
 
 DealsController.prototype.ShowAllDeals = function () {
+    startloadingImage();
+    console.log(startloadingImage);
     var deals = this.DealModel.GetAllDeals();
     this.DealView.AddMarkerForEachDeal(deals);
     $('#foodtype input').prop('checked', true);

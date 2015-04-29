@@ -4,46 +4,54 @@
     this.View = new CategoriesView();
 
 }
-
+//done
 AjaxCategoriesModel.prototype.GetAllCategories = function () {
-    view = new CategoriesView();
+    var result;
     $.ajax({
         type: "GET",
         url: this.BaseURI,
         datatype: "Json",
-        success: function (response) {
-            view.CreateCategoryCheckBoxes(response);
+        success: function(response) {
+            result = response;
         },
-        error: function (response) {
+        error: function(response) {
             alert(response);
-        }
+        },
+        async: false
     });
+    return result;
 }
-
+//done
 AjaxCategoriesModel.prototype.GetDealsFromCategoryCheckbox = function (keyword) {
+    var result;
     $.ajax({
         type: "GET",
         url: this.BaseURI + '/' + keyword,
         datatype: "json",
         success: function (response) {
-            LoopThroughJSON(response.Deals);
+            result = response.Deals;
         },
         error: function (response) {
             alert(response);
-        }
+        },
+        async: false
     });
+    return result;
 }
-
+//done
 AjaxCategoriesModel.prototype.GetDealsFromCategoryUnCheckbox = function (keyword) {
+    var result;
     $.ajax({
         type: "GET",
         url: this.BaseURI + "/" + keyword,
         datatype: "json",
         success: function (response) {
-            removeMarkers(response.Deals);
+            result = response.Deals;
         },
         error: function (response) {
             alert(response);
-        }
+        },
+        async: false
     });
+    return result;
 }

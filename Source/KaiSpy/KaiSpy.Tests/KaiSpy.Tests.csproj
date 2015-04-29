@@ -117,6 +117,7 @@
     <Content Include="css\jasmine.css" />
     <Content Include="Scripts\jasmine-html.js" />
     <Content Include="Scripts\jasmine.js" />
+    <Content Include="Scripts\Radius and Slider\DispayRadius_spec.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

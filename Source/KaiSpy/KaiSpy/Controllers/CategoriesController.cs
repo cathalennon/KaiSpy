@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using KaiSpy.Models;
-using WebGrease.Css.Extensions;
+
 
 namespace KaiSpy.Controllers
 {
@@ -20,19 +17,19 @@ namespace KaiSpy.Controllers
             {
                 Id = c.Id,
                 Name = c.Name,
-                Deals = c.Deals.Select( d=> new DealDTO { BusinessName = d.BusinessName, Id = d.Id, Address = d.Address, Lat = d.Lat, Long = d.Long, Day = d.Day}).ToList()
+                Deals = c.Deals.Select( d=> new DealDTO { BusinessName = d.BusinessName, Id = d.Id, Address = d.Address, Description = d.Description, PhoneNumber =  d.PhoneNumber, Lat = d.Lat, Long = d.Long, Day = d.Day}).ToList()
             });
         }
 
         // GET api/categories/5
         public CategoryDTO Get(string id)
         {
-            var temp =  db.Categories.First(c => c.Name == id);
+            var categoryToReturn =  db.Categories.First(c => c.Name == id);
             return new CategoryDTO
             {
-                Id = temp.Id,
-                Name = temp.Name,
-                Deals = temp.Deals.Select( d=> new DealDTO() { BusinessName = d.BusinessName, Id = d.Id, Address = d.Address, Lat = d.Lat, Long = d.Long, Day = d.Day}).ToList()
+                Id = categoryToReturn.Id,
+                Name = categoryToReturn.Name,
+                Deals = categoryToReturn.Deals.Select(d => new DealDTO() { BusinessName = d.BusinessName, Id = d.Id, Address = d.Address, Description = d.Description, PhoneNumber = d.PhoneNumber, Lat = d.Lat, Long = d.Long, Day = d.Day }).ToList()
             };
         }
     }

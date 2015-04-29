@@ -159,7 +159,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Clients\YelpDto.cs" />
+    <Compile Include="Controllers\BugFixController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Clients\YelpClient.cs" />
     <Compile Include="Controllers\DealsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -178,7 +181,6 @@
     <Compile Include="Models\Deal.cs" />
     <Compile Include="Models\DealFactory.cs" />
     <Compile Include="Models\DealsDBContext.cs" />
-    <Compile Include="Models\HoursApi.cs" />
     <Compile Include="Models\DTOModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -188,11 +190,17 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\imgs\KaiSpy logo.png" />
     <Content Include="Content\imgs\pizza.png" />
+    <Content Include="Content\imgs\Red-Chilli.png" />
     <Content Include="Content\KaiSpyContent.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\Ajax\ajax-categories.js" />
+    <Content Include="Scripts\Controllers\deals-controller.js" />
+    <Content Include="Scripts\Views\deals-view.js" />
+    <Content Include="Scripts\Models\deals-model.js" />
+    <Content Include="Scripts\Views\categories-view.js" />
+    <Content Include="Scripts\Controllers\categories-controller.js" />
+    <Content Include="Scripts\Models\categories-model.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -215,14 +223,15 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\Ajax\GetDeals.js" />
     <Content Include="Scripts\Google\GoogleMaps.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\KaiSpyApp.js" />
+    <Content Include="Scripts\Router\KaiSpyApp.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Views\LoadingIcon.js" />
+    <Content Include="Scripts\Views\LoadingStuff.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

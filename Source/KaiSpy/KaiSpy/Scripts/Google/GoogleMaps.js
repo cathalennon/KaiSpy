@@ -14,24 +14,11 @@ function initialize() {
     // Try HTML5 geolocation
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = new google.maps.LatLng(position.coords.latitude,
-                                             position.coords.longitude);
+            var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-            UserPin = new google.maps.Marker({
-                map: map,
-                position: pos,
-                title: 'You Hungry nom nom nom'
-            });
-
-            circle = new google.maps.Circle({
-                map: map,
-                radius: 3000,    // == meters
-                fillColor: '#B1FF40',
-                fillOpacity: 0.2,
-                strokeOpacity: 0.2,
-                strokeWeight: 0.8
-            });
-
+            UserPin = CreateUserPin(map, pos);
+            UserPin.setAnimation(google.maps.Animation.BOUNCE);
+            circle = CreateCircle(map);
             circle.bindTo('center', UserPin, 'position');
 
             map.setCenter(pos);
@@ -42,6 +29,27 @@ function initialize() {
         // Browser doesn't support Geolocation
         handleNoGeolocation(false);
     }
+}
+
+function CreateUserPin(map, position) {
+    return new google.maps.Marker({
+        map: map,
+        position: position,
+        title: "You Hungry nom nom nom"
+    });
+}
+
+
+
+function CreateCircle(map) {
+    return new google.maps.Circle({
+        map: map,
+        radius: 3000,    // == meters
+        fillColor: '#B1FF40',
+        fillOpacity: 0.2,
+        strokeOpacity: 0.2,
+        strokeWeight: 0.8
+    });
 }
 
 function handleNoGeolocation(errorFlag) {
@@ -81,40 +89,20 @@ function addMarker(deal) {
         infowindow.open(map, marker);
         showDetails(deal);
     });
-    showGoogleMap();
+    stopLoadingImage();
 }
 
-//Removes all markers from unchecked box
-function removeMarkers(condition) {
-
-    for (var j = 0; j < condition.length; j++) {
-
-        for (var i = 0; i < markers.length; i++) {
-            if (markers[i].title === condition[j].BusinessName) {
-                markers[i].setMap(null);
-            }
-        }
-    }
-    showGoogleMap();
-};
-
 function RemoveAllPinsCurrentlyOnMap() {
-    hideGoogleMap();
+    startloadingImage();
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
     }
     markers = [];
     $('#foodtype input').prop('checked', false);
-    showGoogleMap();
+    stopLoadingImage();
 }
 
-function hideGoogleMap() {
-    $('#loading-image').show();
-}
 
-function showGoogleMap() {
-    $('#loading-image').hide();
-}
 
 function CheckMarkerIsInRadius() {
 
@@ -129,3 +117,15 @@ function CheckMarkerIsInRadius() {
         }
     }
 }
+
+function SetCircleRadiusBySlider(value) {
+    circle.set('radius', parseInt(value * 1000));
+    CheckMarkerIsInRadius();
+    DisplaySearchRadiusOnPage(value);
+}
+
+function DisplaySearchRadiusOnPage(value) {
+    var valueToDisplay = value + " km";
+    $('#search-radius').text(valueToDisplay);
+}
+

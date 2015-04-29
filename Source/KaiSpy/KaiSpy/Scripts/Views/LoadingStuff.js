@@ -22,7 +22,7 @@ function LoadDealsEventListeners() {
     $('#remove-all-pins').on('click', RemoveAllPinsCurrentlyOnMap);
     $('#add-all-pins').on('click', dealController.ShowAllDeals.bind(dealController));
     $('#add-all-pins').trigger('click');
-
+    CheckMarkerIsInRadius();
 }
 
 function PlaceLoadingImage() {

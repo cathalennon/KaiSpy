@@ -16,6 +16,7 @@ CategoryController.prototype.ShowSelectedCategory = function (e) {
     if ($(e.currentTarget).is(":checked")) {
         deals = this.CategoriesModel.GetDealsFromCategoryCheckbox(element.value);
         this.DealsView.AddMarkerForEachDeal(deals);
+        CheckMarkerIsInRadius();
     } else {
         deals = this.CategoriesModel.GetDealsFromCategoryUnCheckbox(element.value);
         this.DealsView.RemoveMarkerForEachDeal(deals);

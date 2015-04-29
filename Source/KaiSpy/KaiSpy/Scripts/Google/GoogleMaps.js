@@ -74,7 +74,6 @@ function addMarker(deal) {
     var LatLong = new google.maps.LatLng(deal.latitude, deal.longitude);
     var infowindow = new google.maps.InfoWindow({
         content: '<div class="marker">' + '<h3>' + deal.name + '</h3> </div>'
-
     });
 
     var marker = new google.maps.Marker({

@@ -1,10 +1,11 @@
 ﻿@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(http://fonts.googleapis.com/css?family=Fjalla+One);
 
 body {
     min-width: 900px;
 }
 
-p {
+#Headaa {
     
       display: block;
       top: 15px;
@@ -13,6 +14,16 @@ p {
       font-size: 70px;
       padding-top: 12px;
       font-family: Lobster;
+
+}
+
+p {
+    
+    display: block;
+    margin-left: 46%;
+    margin-right: auto;
+    font-size: 25px;
+    font-family: 'Fjalla One', sans-serif;
 
 }
 
@@ -36,7 +47,7 @@ nav {
 	margin: 1%;
     position: relative;
     background-color: grey;
-    border: solid 6px black;
+   
 }
 
 aside {
@@ -63,19 +74,23 @@ footer {
 
 #details {
     clear: both;
-	width: 100%;
+	width: 98%;
 	height: 300px;
-	border: solid 2px brown;
 	bottom: 0;
     margin: 1%;
+    border: solid 6px black;
 }
 
-#pref h3{
+#pref h2{
     text-align: center;
+    font-family: Lobster;
+    font-size: 30px;
 }
 
-#details h3 {
+#details h2 {
     text-align: center;
+    font-family: Lobster;
+    font-size: 30px;
 }
 
 input {

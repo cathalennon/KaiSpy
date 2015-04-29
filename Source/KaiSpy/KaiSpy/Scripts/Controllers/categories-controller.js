@@ -6,7 +6,6 @@
 
 CategoryController.prototype.ShowCategoryCheckboxes = function() {
     var deals = this.CategoriesModel.GetAllCategories();
-    console.log('this category model is : ' + this.CategoriesModel);
     this.CategoriesView.CreateCategoryCheckBoxes(deals);
 }
 

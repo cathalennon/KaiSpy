@@ -8,6 +8,7 @@ DealsController.prototype.ShowAllDeals = function() {
     this.DealView.AddMarkerForEachDeal(deals);
     $('#foodtype input').prop('checked', true);
     circle.set('radius', parseInt(3000));
+    //circle.setRadius(3000);
     $('#search-radius-slider').prop('value', 3);
     $('#search-radius').text("3 km");
 }

@@ -10,8 +10,6 @@ AjaxDealsModel.prototype.GetAllDeals = function () {
         datatype: "Json",
         success: function (response) {
             result = response;
-            console.log(response);
-            console.log('getting all deals :' + result);
         },
         error: function (response) {
             alert(response);

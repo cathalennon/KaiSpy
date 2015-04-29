@@ -102,13 +102,7 @@ function RemoveAllPinsCurrentlyOnMap() {
     stopLoadingImage();
 }
 
-function startloadingImage() {
-    $('#loading-image').show();
-}
 
-function stopLoadingImage() {
-    $('#loading-image').hide();
-}
 
 function CheckMarkerIsInRadius() {
 

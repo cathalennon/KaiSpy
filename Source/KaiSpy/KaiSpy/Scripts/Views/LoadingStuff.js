@@ -7,7 +7,6 @@
 function RenderInitalPage() {
      PlaceLoadingImage();
     initialize();
-    getAllDeals();
 }
 
 function LoadCategoriesEventListeners() {
@@ -18,6 +17,7 @@ function LoadCategoriesEventListeners() {
 
 function LoadDealsEventListeners() {
     var dealController = new DealsController();
+    dealController.ShowAllDeals();
     $('#remove-all-pins').on('click', RemoveAllPinsCurrentlyOnMap);
     $('#add-all-pins').on('click', dealController.ShowAllDeals.bind(dealController));
 }
@@ -46,6 +46,11 @@ function showDetails(deal) {
     $('#details').show();
 }
 
+function startloadingImage() {
+    $('#loading-image').show();
+}
 
-
+function stopLoadingImage() {
+    $('#loading-image').hide();
+}
 

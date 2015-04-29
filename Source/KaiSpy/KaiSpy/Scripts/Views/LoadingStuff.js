@@ -19,6 +19,8 @@ function LoadDealsEventListeners() {
     var dealController = new DealsController();
     $('#remove-all-pins').on('click', RemoveAllPinsCurrentlyOnMap);
     $('#add-all-pins').on('click', dealController.ShowAllDeals.bind(dealController));
+    $('#add-all-pins').trigger('click');
+
 }
 
 function PlaceLoadingImage() {

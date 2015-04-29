@@ -8,9 +8,10 @@
     @Scripts.Render("~/bundles/App")
     @Styles.Render("~/Content/css")
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<p>Kai-Spy</p>
+<p id ="Headaa">Kai-Spy</p>
 
     <aside id="pref">
         <h3>Preferences:</h3>
@@ -18,10 +19,13 @@
         <form id="foodtype">
 
         </form>
-        <button id="remove-all-pins" type="button">Clear All</button>
-        <button id="add-all-pins" type="button">Show All</button>
+        
         <input id="search-radius-slider" type="range" min="1" max="10" value="3" oninput="SetCircleRadiusBySlider(this.value)"/>
         <span id="search-radius">3 km</span>
+        <div id="tester">
+            <button id="remove-all-pins" type="button">Clear All</button>
+            <button id="add-all-pins" type="button">Show All</button>
+        </div>
     </aside>
 
     <section id='map'>
@@ -29,11 +33,8 @@
     </section>
 
     <section id="details">
-        <h3>Detail here</h3>
+        <h2>Detail here</h2>
     </section>
 
-    <footer>
-        footer here
-    </footer>
-</body>
+    </body>
 </html>

@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace KaiSpy
 {
@@ -24,12 +23,11 @@ namespace KaiSpy
                       "~/Content/KaiSpyContent.css"));
 
              bundles.Add(new ScriptBundle("~/bundles/App").Include(
-                      "~/Scripts/Ajax/*.js",
                       "~/Scripts/Models/*.js",
                       "~/Scripts/Views/*.js",
                       "~/Scripts/Controllers/*.js",
                       "~/Scripts/Google/*.js",
-                      "~/Scripts/KaiSpyApp.js"));
+                      "~/Scripts/Router/*.js"));
         }
     }
 }

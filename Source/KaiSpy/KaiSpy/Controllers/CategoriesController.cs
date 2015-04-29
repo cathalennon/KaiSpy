@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web.Http;
 using KaiSpy.Models;
 
-
 namespace KaiSpy.Controllers
 {
     public class CategoriesController : ApiController

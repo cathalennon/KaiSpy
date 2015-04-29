@@ -3,18 +3,23 @@
 });
 
 function LoadHomePage() {
-    var categoryController = new CategoryController();
-    startloadingImage();
+    RenderInitalPage();
+    LoadEventListeners();
+}
+
+function RenderInitalPage() {
+     PlaceLoadingImage();
     initialize();
-    PlaceLoadingImage();
-    
     getAllDeals();
+}
+
+function LoadEventListeners() {
+    var categoryController = new CategoryController();
     categoryController.ShowCategoryCheckboxes(); //done
     $('#foodtype').on('click', 'input', categoryController.ShowSelectedCategory.bind(categoryController));
     $('#remove-all-pins').on('click', RemoveAllPinsCurrentlyOnMap);
     $('#add-all-pins').on('click', ResetAllPinsToShowOnMap);
 }
-
 
 function showDetails(deal) {
     $('#details').empty();

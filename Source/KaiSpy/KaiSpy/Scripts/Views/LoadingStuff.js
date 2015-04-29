@@ -5,8 +5,10 @@
 }
 
 function RenderInitalPage() {
-    PlaceLoadingImage();
     initialize();
+    PlaceLoadingImage();
+    SpinLoadingImage();
+    startloadingImage();
 }
 
 function LoadCategoriesEventListeners() {
@@ -27,7 +29,7 @@ function PlaceLoadingImage() {
     $('#map-canvas').append('<img id="loading-image" src="/Content/imgs/pizza.png">');
 }
 
-$(function () {
+function SpinLoadingImage() {
     var $elie = $("#loading-image"), degree = 0;
     function rotate() {
         $elie.css({ WebkitTransform: 'rotate(' + degree + 'deg)' });
@@ -37,7 +39,7 @@ $(function () {
         }, 5);
     }
     rotate();
-});
+};
 
 function showDetails(deal) {
     $('#details').empty();

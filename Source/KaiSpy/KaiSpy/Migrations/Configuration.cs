@@ -1,15 +1,9 @@
-using System.Collections.Generic;
-using System.Threading;
+using System.Data.Entity.Migrations;
 using KaiSpy.Models;
 
 namespace KaiSpy.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<KaiSpy.Models.DealsDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DealsDBContext>
     {
         public Configuration()
         {

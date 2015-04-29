@@ -194,6 +194,9 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\Controllers\deals-controller.js" />
+    <Content Include="Scripts\Views\deals-view.js" />
+    <Content Include="Scripts\Models\deals-model.js" />
     <Content Include="Scripts\Views\categories-view.js" />
     <Content Include="Scripts\Controllers\categories-controller.js" />
     <Content Include="Scripts\Models\categories-model.js" />
@@ -219,14 +222,14 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\Ajax\GetDeals.js" />
     <Content Include="Scripts\Google\GoogleMaps.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\KaiSpyApp.js" />
+    <Content Include="Scripts\Router\KaiSpyApp.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Views\LoadingStuff.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

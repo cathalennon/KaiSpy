@@ -29,7 +29,6 @@ function initialize() {
         handleNoGeolocation(false);
     }
 }
-pin = CreateUserPin(map, top, "vundermap")
 
 function CreateUserPin(map, position) {
     return new google.maps.Marker({
@@ -102,13 +101,7 @@ function RemoveAllPinsCurrentlyOnMap() {
     stopLoadingImage();
 }
 
-function startloadingImage() {
-    $('#loading-image').show();
-}
 
-function stopLoadingImage() {
-    $('#loading-image').hide();
-}
 
 function CheckMarkerIsInRadius() {
 
@@ -123,3 +116,15 @@ function CheckMarkerIsInRadius() {
         }
     }
 }
+
+function SetCircleRadiusBySlider(value) {
+    circle.set('radius', parseInt(value * 1000));
+    CheckMarkerIsInRadius();
+    DisplaySearchRadiusOnPage(value);
+}
+
+function DisplaySearchRadiusOnPage(value) {
+    var valueToDisplay = value + " km";
+    $('#search-radius').text(valueToDisplay);
+}
+

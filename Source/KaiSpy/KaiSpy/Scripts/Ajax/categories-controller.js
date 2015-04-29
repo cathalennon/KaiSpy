@@ -8,13 +8,16 @@ CategoryController.prototype.ShowCategoryCheckboxes = function() {
     console.log('this category model is : ' + this.CategoriesModel);
     this.CategoriesView.CreateCategoryCheckBoxes(deals);
 }
-
+//done
 CategoryController.prototype.ShowSelectedCategory = function (e) {
     var element = e.target;
     startloadingImage();
+    var deals;
     if ($(e.currentTarget).is(":checked")) {
-        this.CategoriesModel.GetDealsFromCategoryCheckbox(element.value);
+        deals = this.CategoriesModel.GetDealsFromCategoryCheckbox(element.value);
+        this.CategoriesView.AddMarkerForEachDeal(deals);
     } else {
-        this.CategoriesModel.GetDealsFromCategoryUnCheckbox(element.value);
+        deals = this.CategoriesModel.GetDealsFromCategoryUnCheckbox(element.value);
+        this.CategoriesView.RemoveMarkerForEachDeal(deals);
     }
 }

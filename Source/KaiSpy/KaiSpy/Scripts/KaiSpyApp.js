@@ -6,15 +6,13 @@ function LoadHomePage() {
     var categoryController = new CategoryController();
     startloadingImage();
     initialize();
-    loadingImage();
+    PlaceLoadingImage();
     
     getAllDeals();
     categoryController.ShowCategoryCheckboxes(); //done
     $('#foodtype').on('click', 'input', categoryController.ShowSelectedCategory.bind(categoryController));
     $('#remove-all-pins').on('click', RemoveAllPinsCurrentlyOnMap);
     $('#add-all-pins').on('click', ResetAllPinsToShowOnMap);
-
-    startloadingImage(); 
 }
 
 
@@ -35,7 +33,7 @@ function ResetAllPinsToShowOnMap() {
     $('#search-radius').text("3 km");
 }
 
-function loadingImage() {
+function PlaceLoadingImage() {
     $('#map-canvas').append('<img id="loading-image" src="/Content/imgs/pizza.png">');
 }
 

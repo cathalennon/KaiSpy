@@ -92,20 +92,6 @@ function addMarker(deal) {
     stopLoadingImage();
 }
 
-//Removes all markers from unchecked box
-function removeMarkers(condition) {
-
-    for (var j = 0; j < condition.length; j++) {
-
-        for (var i = 0; i < markers.length; i++) {
-            if (markers[i].title === condition[j].BusinessName) {
-                markers[i].setMap(null);
-            }
-        }
-    }
-    stopLoadingImage();
-};
-
 function RemoveAllPinsCurrentlyOnMap() {
     startloadingImage();
     for (var i = 0; i < markers.length; i++) {

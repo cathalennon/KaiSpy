@@ -19,6 +19,8 @@ function LoadDealsEventListeners() {
     var dealController = new DealsController();
     $('#remove-all-pins').on('click', RemoveAllPinsCurrentlyOnMap);
     $('#add-all-pins').on('click', dealController.ShowAllDeals.bind(dealController));
+    $('#add-all-pins').trigger('click');
+
 }
 
 function PlaceLoadingImage() {
@@ -41,7 +43,7 @@ function showDetails(deal) {
     $('#details').empty();
     var dets = "<p> Day: " + deal.day + "</p><p>" + deal.description + "</p>";
     var businessInfo = '<div id="businessInfo"><p> Phone: ' + deal.phone + '</p><p> Address: ' + deal.address + '</p></div>';
-    $('#details').append("<h2>" + deal.name + "<h2>" + dets + businessInfo);
+    $('#details').append("<h2>" + deal.name + "</h2><div id = 'info'>" + dets + businessInfo + "</div>");
     $('#details').show();
 }
 

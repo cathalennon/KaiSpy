@@ -9,13 +9,6 @@
     @Styles.Render("~/Content/css")
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-
-    
- 
-
-
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-
 </head>
 <body>
 <p id ="Headaa">Kai-Spy</p>
@@ -26,10 +19,13 @@
         <form id="foodtype">
 
         </form>
-        <button id="remove-all-pins" type="button">Clear All</button>
-        <button id="add-all-pins" type="button">Show All</button>
+        
         <input id="search-radius-slider" type="range" min="1" max="10" value="3" oninput="SetCircleRadiusBySlider(this.value)"/>
         <span id="search-radius">3 km</span>
+        <div id="tester">
+            <button id="remove-all-pins" type="button">Clear All</button>
+            <button id="add-all-pins" type="button">Show All</button>
+        </div>
     </aside>
 
     <section id='map'>

@@ -21,7 +21,11 @@ CategoriesView.prototype.AddMarkerForEachDeal = function(deals) {
             address: d.Address,
             phone: d.PhoneNumber
         }
-        addMarker(deal);
+        var dealposition = new google.maps.LatLng(deal.latitude, deal.longitude);
+        var distance = google.maps.geometry.spherical.computeDistanceBetween(dealposition, UserPin.position);
+        if (distance < circle.radius) {
+            addMarker(deal);
+        }
     }
 };
 //done
